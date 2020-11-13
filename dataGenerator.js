@@ -1,13 +1,14 @@
 const faker = require('faker');
 
 const createShoes = (quantity) => {
-  const categories = ['Originals', 'Unoriginals', 'Performance', 'Slacking'];
+  let categories = ['Originals', 'Performance', 'Running', 'Hiking', 'Essentials', 'Lifestyle', 'Basketball', 'Workout', 'Gym', 'Clean Classics'];
+  let shoeName = ['NMD_R1 SHOES', 'ULTRABOOST SHOES', 'ULTRABOOST ST SHOES', 'ULTRABOOST DNA SHOES', 'ULTRABOOST WINTER.RDY SHOES', 'BUSENITZ PRO SHOES', 'NIZZA TREFOIL SHOES', 'ZX 2K BOOST SHOES', 'OZWEEGO SHOES', 'NMD_R1 V2 SHOES', 'ULTRABOOST LTD SHOES', 'ULTRABOOST 20 SHOES', 'ADILETTE COMFORT SLIDES', 'SUN DEVILS ULTRABOOST 1.0 DNA SHOES', 'ULTRABOOST DNA X REAL MADRID SHOES'];
   let listOfProductDocuments = [];
   let commerce = faker.commerce;
 
   for (let i = 0; i < quantity; i++) {
     let productDocument = {
-      name: faker.commerce.productName(), // change to pull from array of shoe names
+      name: getRandomElement(shoeName),
       category: getRandomElement(categories),
       color: `${commerce.productAdjective()} ${capitalize(commerce.color())} / ${capitalize(commerce.color())} ${commerce.productAdjective()} / ${commerce.productAdjective()} ${capitalize(commerce.color())}`,
       price: getRandomNum(100, 200, true),

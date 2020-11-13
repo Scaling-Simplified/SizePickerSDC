@@ -1,8 +1,8 @@
 {
-  "name": "",
+  "name": "sizepicker-service",
   "version": "",
-  "description": "",
-  "author": "",
+  "description": "Size picker and add to cart module",
+  "author": "Andy Kwong",
   "license": "",
   "engines": {
     "node": ">=6.13.0"
