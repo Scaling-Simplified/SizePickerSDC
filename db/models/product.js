@@ -16,7 +16,8 @@ const findAll = async () => {
 }
 
 const findOne = async (name) => {
-  return await ProductModel.find({name})
+  let query = name ? {name} : {};
+  return await ProductModel.findOne(query);
 }
 
 const insertOneOrMany = async (productOrProducts) => {
