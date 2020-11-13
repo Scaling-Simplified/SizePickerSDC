@@ -9,6 +9,7 @@ const createShoes = (quantity) => {
   for (let i = 0; i < quantity; i++) {
     let productDocument = {
       name: getRandomElement(shoeName),
+      id: i,
       category: getRandomElement(categories),
       color: `${commerce.productAdjective()} ${capitalize(commerce.color())} / ${capitalize(commerce.color())} ${commerce.productAdjective()} / ${commerce.productAdjective()} ${capitalize(commerce.color())}`,
       price: getRandomNum(100, 200, true),

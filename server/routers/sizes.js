@@ -4,16 +4,16 @@ const productDb = require('../../db/models/product.js');
 const router = express.Router();
 
 router.route('/').get(async (req, res) => {
-  const product = await productDb.findOne().catch((ex) => {
+  const product = await productDb.findOne(0).catch((ex) => {
     console.log(ex);
     res.status(404).send(ex.message);
   });
   res.send(product);
 })
 
-router.route('/:itemName').get(async (req, res) => {;
-  const itemName = req.params.itemName.split('-').join(' ');
-  const product = await productDb.findOne(itemName).catch((ex) => {
+router.route('/:itemId').get(async (req, res) => {
+  const itemId = req.params.itemId;
+  const product = await productDb.findOne(itemId).catch((ex) => {
     console.log(ex);
     res.status(404).send(ex.message);
   });

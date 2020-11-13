@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const productSchema = mongoose.Schema({
   name: String,
+  id: Number,
   category: String,
   color: String,
   price: Number,
@@ -15,9 +16,8 @@ const findAll = async () => {
   return await ProductModel.find({});
 }
 
-const findOne = async (name) => {
-  let query = name ? {name} : {};
-  return await ProductModel.findOne(query);
+const findOne = async (id) => {
+  return await ProductModel.findOne({id});
 }
 
 const insertOneOrMany = async (productOrProducts) => {
