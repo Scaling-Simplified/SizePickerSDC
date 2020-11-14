@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import ProductInfo from './productInfo';
 
-const App = () => {
+function App() {
+  const Container = styled.div`
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    font-family: AdihausDIN Cn,Helvetica,Arial,sans-serif;
+    padding: 2rem 2.5rem;
+  `;
+
   return (
-    <h1>Please work webpack!</h1>
-  )
+    <Container>
+      <ProductInfo />
+    </Container>
+  );
 }
 
 export default App;
