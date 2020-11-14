@@ -10,7 +10,7 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "dev-react": "webpack -d --watch",
-    "seed_db": "node seed.js"
+    "seed-db": "node seed.js"
   },
   "dependencies": {
     "@babel/core": "^7.12.3",
