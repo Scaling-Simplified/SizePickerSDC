@@ -13,7 +13,7 @@ const CartModel = mongoose.model('Cart', cartSchema);
 
 const findAll = async () => CartModel.find({});
 
-const insertOne = async (productOrProducts) => CartModel.create(productOrProducts);
+const insertOne = async (product) => CartModel.create(product);
 
 module.exports = {
   findAll,
