@@ -9,10 +9,8 @@ mongoose.connect('mongodb://localhost/sizepicker',
   { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to sizepicker DB'));
 
+app.use(express.static(__dirname + '/../public'));
 app.use(bodyParser.text());
-//Uncomment when webpack is configured
-//app.use(express.static(__dirname + '../client/dist'));
-
 app.use('/api/sizes', sizesRouter);
 
 app.listen(port, () => {
