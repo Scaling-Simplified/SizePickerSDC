@@ -1,5 +1,5 @@
-/* eslint-disable no-return-await */
 const mongoose = require('mongoose');
+const debug = require('debug')('app:models:product');
 
 const productSchema = mongoose.Schema({
   name: String,
@@ -20,13 +20,7 @@ const findOne = async (id) => ProductModel.findOne({ id });
 const insertOneOrMany = async (productOrProducts) => ProductModel.create(productOrProducts);
 
 // eslint-disable-next-line no-unused-vars
-const dropCollection = async () => {
-  try {
-    return await ProductModel.remove({});
-  } catch (ex) {
-    console.log(ex.message);
-  }
-};
+const dropCollection = async () => ProductModel.remove({}).catch((ex) => debug(ex.message));
 
 module.exports = {
   findAll,
