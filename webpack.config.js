@@ -23,6 +23,5 @@ module.exports = {
     ],
   },
   watch: true,
-  plugins: ['babel-plugin-styled-components'],
   resolve: { extensions: ['.js', '.jsx'] },
 };
