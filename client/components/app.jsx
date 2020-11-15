@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ProductInfo from './productInfo';
+import ProductInfo from './productDescription/productInfo';
 
 function App() {
   const Container = styled.div`
