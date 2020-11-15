@@ -25,3 +25,6 @@ build/
 dist/
 bundle.js
 
+# env config
+.env
+

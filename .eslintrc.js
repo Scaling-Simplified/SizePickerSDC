@@ -1,5 +1,10 @@
 module.exports = {
-  extends: 'airbnb-base',
-  parser: 'babel-eslint',
-  browser: true,
+  extends: [
+    'airbnb',
+    'airbnb/hooks',
+  ],
+  globals: {
+    window: true,
+    document: true,
+  },
 };
