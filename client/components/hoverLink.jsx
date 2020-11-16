@@ -13,7 +13,6 @@ function HoverLink(props) {
     transition,
   } = props;
 
-  // add settable width & height
   const StyledLink = styled.span`
     display: flex;
     justify-content: center;

@@ -8,6 +8,7 @@ function ModalLink({ message }) {
     display: flex;
     justify-content: flex-start;
     padding-right: 20px;
+    line-height: 15px;
   `;
 
   return (

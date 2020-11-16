@@ -13,6 +13,10 @@ function WishListButton() {
     margin-left: 10px;
     box-sizing: border-box;
     cursor: pointer;
+    &:active {
+      transform: scale(.95, .95);
+    }
+    transition: transform .1s;
   `;
 
   return (

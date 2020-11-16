@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 function Heart() {
+  const [heartFilled, setHeartFilled] = useState(false);
   const Wrapper = styled.div`
     width: 100%;
     height: 100%;
@@ -15,14 +16,14 @@ function Heart() {
   `;
 
   return (
-    <Wrapper>
+    <Wrapper onClick={() => setHeartFilled(!heartFilled)}>
       <svg
         viewBox="0 0 20 24"
         width="1.5rem"
         height="1.5rem"
       >
         <path
-          fill="none"
+          fill={heartFilled ? 'currentColor' : 'none'}
           stroke="currentColor"
           strokeMiterlimit="10"
           strokeWidth="2"
