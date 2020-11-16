@@ -13,6 +13,7 @@ function ReviewsButton() {
       background-color: black;
       color: white
     }
+    transition: color .1s, background-color .1s;
   `;
   const StarContainer = styled.div`
     margin-right: 5px;

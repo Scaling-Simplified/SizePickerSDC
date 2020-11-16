@@ -7,6 +7,7 @@ function SizeSelector() {
   const SelectSizeText = styled.span`
     margin: 20px 0;
     font-family: adihaus;
+    box-sizing: border-box;
   `;
 
   return (

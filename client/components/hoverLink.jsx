@@ -10,9 +10,9 @@ function HoverLink(props) {
     width,
     height,
     marginTop,
+    transition,
   } = props;
 
-  // add settable width & height
   const StyledLink = styled.span`
     display: flex;
     justify-content: center;
@@ -28,6 +28,8 @@ function HoverLink(props) {
       background-color: black;
       color: white
     }
+    transition: ${transition};
+    box-sizing: border-box;
   `;
 
   return (
@@ -45,6 +47,7 @@ HoverLink.defaultProps = {
   height: 'initial',
   marginTop: '5px',
   border: 'none',
+  transition: 'color .1s, background-color .1s',
 };
 
 HoverLink.propTypes = {
@@ -54,4 +57,5 @@ HoverLink.propTypes = {
   width: PropTypes.string,
   marginTop: PropTypes.string,
   border: PropTypes.string,
+  transition: PropTypes.string,
 };
