@@ -12,6 +12,7 @@ function WishListButton() {
     border: 1px solid black;
     margin-left: 10px;
     box-sizing: border-box;
+    cursor: pointer;
   `;
 
   return (
