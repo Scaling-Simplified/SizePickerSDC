@@ -10,23 +10,25 @@ function AddToBag() {
     width: 309px;
     height: 50px;
     box-sizing: border-box;
-    transform: translate(3px, 3px);
     z-index: -1;
   `;
 
   const AddToBagButton = styled.div`
-    display: grid;
+    grid-column: 1;
+    grid-row: 1;
     background-color: black;
     width: 309px;
     height: 50px;
     border: 1px solid black;
     box-sizing: border-box;
     transform: translate(-3px, -3px);
+    &:active {
+      transform: translate(0px, 0px);
+    }
+    transition: transform .1s;
   `;
 
   const TransparencyWrapper = styled.div`
-    grid-column: 1;
-    grid-row: 1;
     width: 100%;
     height: 100%;
     display: flex;
@@ -44,6 +46,7 @@ function AddToBag() {
     display: grid;
     width: 309px;
     height: 50px;
+    box-sizing: border-box;
   `;
 
   const Text = styled.span`
@@ -55,15 +58,15 @@ function AddToBag() {
   `;
 
   return (
-    <>
+    <Grid>
       <AddToBagButton>
         <TransparencyWrapper>
           <Text>ADD TO BAG</Text>
           <Arrow />
         </TransparencyWrapper>
-        <BorderBox />
       </AddToBagButton>
-    </>
+      <BorderBox />
+    </Grid>
   );
 }
 

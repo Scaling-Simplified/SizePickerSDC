@@ -22,6 +22,7 @@ function SizeContainer() {
           marginTop="0"
           height="40px"
           border="1px solid #ebedee"
+          transition="none"
         />
       ))}
     </Grid>

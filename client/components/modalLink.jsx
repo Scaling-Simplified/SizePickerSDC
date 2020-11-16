@@ -7,6 +7,7 @@ function ModalLink({ message }) {
   const ButtonWrapper = styled.div`
     display: flex;
     justify-content: flex-start;
+    padding-right: 20px;
   `;
 
   return (
