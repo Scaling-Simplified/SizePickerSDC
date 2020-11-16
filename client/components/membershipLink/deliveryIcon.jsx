@@ -1,14 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const IconWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 41px;
+  margin-right: 5px;
+`;
+
 function DeliveryIcon() {
-  const IconWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: 41px;
-    margin-right: 5px;
-  `;
   return (
     <IconWrapper>
       <svg
