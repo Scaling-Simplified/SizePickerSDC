@@ -28,6 +28,7 @@ function HoverLink(props) {
       background-color: black;
       color: white
     }
+    box-sizing: border-box;
   `;
 
   return (
