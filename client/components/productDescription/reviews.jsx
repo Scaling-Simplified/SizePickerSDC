@@ -1,26 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Star from './star';
 
 function ReviewsButton() {
-  const [highlight, setHighlight] = useState(false);
-
   const Reviews = styled.span`
     text-decoration: underline;
     display: flex;
     cursor: pointer;
-    background-color: ${highlight ? 'black' : 'white'};
-    color: ${highlight ? 'white' : 'black'};
+    background-color: 'white';
+    color: 'black';
+    &:hover {
+      background-color: black;
+      color: white
+    }
   `;
   const StarContainer = styled.div`
     margin-right: 5px;
   `;
 
   return (
-    <Reviews
-      onMouseEnter={() => setHighlight(true)}
-      onMouseLeave={() => setHighlight(false)}
-    >
+    <Reviews>
       <StarContainer>
         <Star />
         <Star />
