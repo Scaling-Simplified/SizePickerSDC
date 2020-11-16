@@ -10,7 +10,7 @@ function SizeContainer() {
     grid-gap: 0px;
     border-top: 1px solid #ebedee;
     border-left: 1px solid #ebedee;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
   `;
   const sizes = [...Array(12).keys()];
   return (

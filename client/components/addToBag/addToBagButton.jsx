@@ -40,6 +40,12 @@ function AddToBag() {
     }
   `;
 
+  const Grid = styled.div`
+    display: grid;
+    width: 309px;
+    height: 50px;
+  `;
+
   const Text = styled.span`
     font-family: adihaus;
     color: white;

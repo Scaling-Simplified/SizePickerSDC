@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import WishListButton from './wishListButton';
 import AddToBagButton from './addToBagButton';
+import MembershipLink from '../membershipLink/membershipLink';
 
 function BottomButtons() {
   const ButtonsContainer = styled.div`
@@ -13,10 +14,13 @@ function BottomButtons() {
   `;
 
   return (
-    <ButtonsContainer>
-      <AddToBagButton />
-      <WishListButton />
-    </ButtonsContainer>
+    <>
+      <ButtonsContainer>
+        <AddToBagButton />
+        <WishListButton />
+      </ButtonsContainer>
+      <MembershipLink />
+    </>
   );
 }
 
