@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  &:hover {
+    opacity: 50%;
+  }
+`;
+
 function Heart() {
   const [heartFilled, setHeartFilled] = useState(false);
-  const Wrapper = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    &:hover {
-      opacity: 50%;
-    }
-  `;
 
   return (
     <Wrapper onClick={() => setHeartFilled(!heartFilled)}>

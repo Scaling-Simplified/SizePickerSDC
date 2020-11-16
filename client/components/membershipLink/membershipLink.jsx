@@ -3,13 +3,14 @@ import styled from 'styled-components';
 import ModalLink from '../modalLink';
 import DeliveryIcon from './deliveryIcon';
 
+const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+`;
+
 function MembershipLink() {
-  const Wrapper = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 20px;
-  `;
   return (
     <Wrapper>
       <DeliveryIcon />

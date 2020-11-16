@@ -4,15 +4,15 @@ import WishListButton from './wishListButton';
 import AddToBagButton from './addToBagButton';
 import MembershipLink from '../membershipLink/membershipLink';
 
-function BottomButtons() {
-  const ButtonsContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 40px;
-    box-sizing: border-box;
-  `;
+const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  box-sizing: border-box;
+`;
 
+function BottomButtons() {
   return (
     <>
       <ButtonsContainer>

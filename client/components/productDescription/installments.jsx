@@ -2,10 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import ModalLink from '../modalLink';
 
+const StaticContent = styled.span`
+  margin-top: 20px;
+`;
+
 function Installments() {
-  const StaticContent = styled.span`
-    margin-top: 20px;
-  `;
   return (
     <>
       <StaticContent>
