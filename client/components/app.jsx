@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ProductInfo from './productDescription/productInfo';
+import SizePicker from './sizeSelector/sizePicker';
 
 function App() {
   const Container = styled.div`
@@ -15,6 +16,7 @@ function App() {
   return (
     <Container>
       <ProductInfo />
+      <SizePicker />
     </Container>
   );
 }
