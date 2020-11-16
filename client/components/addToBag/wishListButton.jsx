@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Heart from './heart';
 
 function WishListButton() {
   const HeartContainer = styled.div`
@@ -14,7 +15,9 @@ function WishListButton() {
   `;
 
   return (
-    <HeartContainer />
+    <HeartContainer>
+      <Heart />
+    </HeartContainer>
   );
 }
 
