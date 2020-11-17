@@ -2,7 +2,6 @@
 /* eslint-disable no-undef */
 const mongoose = require('mongoose');
 const supertest = require('supertest');
-const debug = require('debug')('test:server');
 const createServer = require('../server');
 const Product = require('../../db/models/product');
 const testData = require('./testData.js');
