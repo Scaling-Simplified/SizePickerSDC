@@ -19,7 +19,7 @@ function SizeContainer() {
   let items;
   if (currentShoe.skus) {
     items = currentShoe.skus.map((val) => (
-      <SizeItem key={val._id} size={val.size} id={val._id} />
+      <SizeItem key={val._id} size={val.size} id={val._id} stock={val.stock} />
     ));
   }
 
