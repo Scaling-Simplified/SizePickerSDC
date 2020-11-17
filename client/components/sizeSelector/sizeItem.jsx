@@ -14,8 +14,8 @@ const StyledSizeBlock = styled.span`
   height: 40px;
   cursor: pointer;
   margin-top: 0;
-  background-color: ${props => props.selected && 'black'};
-  color: ${props => props.selected && 'white'};
+  background-color: ${(props) => props.selected && 'black'};
+  color: ${(props) => props.selected && 'white'};
   &:hover {
     background-color: black;
     color: white
@@ -23,11 +23,16 @@ const StyledSizeBlock = styled.span`
   box-sizing: border-box;
 `;
 
-function SizeItem({ size, id }) {
+function SizeItem({ size, id, stock }) {
   const { selectedSize, setSelectedSize } = useContext(ProductContext);
-  const selected = selectedSize === id;
+  const selected = selectedSize.id === id;
   return (
-    <StyledSizeBlock selected={selected} onClick={() => setSelectedSize(id)}>
+    <StyledSizeBlock
+      selected={selected}
+      onClick={
+        () => setSelectedSize({ id, stock })
+      }
+    >
       <span>{ size }</span>
     </StyledSizeBlock>
   );
@@ -37,4 +42,6 @@ export default SizeItem;
 
 SizeItem.propTypes = {
   size: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  stock: PropTypes.number.isRequired,
 };

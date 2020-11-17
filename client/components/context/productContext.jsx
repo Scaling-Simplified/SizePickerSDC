@@ -7,21 +7,21 @@ import dataMassage from './dataMassage';
 const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
-  const [selectedSize, setSelectedSize] = useState(5);
+  const [selectedSize, setSelectedSize] = useState({ id: null, stock: 100 });
   const [favorites, setFavorites] = useState([]);
   const [currentShoe, setCurrentShoe] = useState({});
-  const [lowStock, setLowStock] = useState({});
+  const [outOfStock, setOutOfStock] = useState([]);
 
   useEffect(() => {
     async function getShoes() {
       const res = await axios.get('/api/sizes/1');
+      const [noStock, hasStock] = dataMassage.getOutOfStock(res.data.skus);
+      res.data.skus = hasStock;
       setCurrentShoe(res.data);
-      setLowStock(dataMassage.getLowStock(res.data.skus));
+      setOutOfStock(noStock);
     }
     getShoes();
   }, []);
-
-  console.log(lowStock);
 
   return (
     <ProductContext.Provider value={{
@@ -31,8 +31,8 @@ export const ProductProvider = ({ children }) => {
       setFavorites,
       currentShoe,
       setCurrentShoe,
-      lowStock,
-      setLowStock,
+      outOfStock,
+      setOutOfStock,
     }}
     >
       { children }

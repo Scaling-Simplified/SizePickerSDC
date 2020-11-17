@@ -1,10 +1,10 @@
 /* eslint-disable no-underscore-dangle */
-function getLowStock(skus) {
-  const lowStockSkus = {};
-  skus.forEach((sku) => { lowStockSkus[sku._id] = sku.stock; });
-  return lowStockSkus;
+function getOutOfStock(skus) {
+  const noStock = skus.filter((sku) => sku.stock === 0);
+  const hasStock = skus.filter((sku) => sku.stock > 0);
+  return [noStock, hasStock];
 }
 
 module.exports = {
-  getLowStock,
+  getOutOfStock,
 };
