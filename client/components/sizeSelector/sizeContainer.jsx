@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import SizeItem from './sizeItem';
@@ -14,14 +15,17 @@ margin-bottom: 5px;
 `;
 
 function SizeContainer() {
-  const { allSizes, setAllSizes } = useContext(ProductContext);
-  //const sizes = [...Array(12).keys()];
-  //setAllSizes([0, 1, 2, 3, 4, 5]);
+  const { currentShoe } = useContext(ProductContext);
+  let items;
+  if (currentShoe.skus) {
+    items = currentShoe.skus.map((val) => (
+      <SizeItem key={val._id} size={val.size} id={val._id} />
+    ));
+  }
+
   return (
     <Grid>
-      {allSizes.map((val) => (
-        <SizeItem size={val} />
-      ))}
+      {items}
     </Grid>
   );
 }
