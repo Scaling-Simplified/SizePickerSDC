@@ -14,7 +14,7 @@ const SingleStar = styled.div`
 `;
 
 function Star({ fill }) {
-  let percentage = fill >= 1 ? '100%' : `${fill * 100}%`;
+  let percentage;
   if (fill >= 1) {
     percentage = '100%';
   } else if (fill < 0) {
