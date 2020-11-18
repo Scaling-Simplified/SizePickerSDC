@@ -49,7 +49,9 @@ const createShoes = (quantity) => {
       category: getRandomElement(categories),
       color: `${commerce.productAdjective()} ${capitalize(commerce.color())} / ${capitalize(commerce.color())} ${commerce.productAdjective()} / ${commerce.productAdjective()} ${capitalize(commerce.color())}`,
       price: getRandomNum(100, 200, true),
-      photo_url: 'url',
+      photoUrl: 'url',
+      numOfReviews: getRandomNum(10, 300),
+      averageRating: faker.finance.amount(4, 5, 1),
       skus: createSkus(),
     };
     listOfProductDocuments.push(productDocument);
