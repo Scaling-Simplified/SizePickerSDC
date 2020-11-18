@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import Star from './star';
+import productContext from '../context/productContext';
 
 const Reviews = styled.span`
   text-decoration: underline;
@@ -17,19 +18,23 @@ const Reviews = styled.span`
 
 const StarContainer = styled.div`
   margin-right: 5px;
+  display: flex;
+  flex-direction: row;
 `;
 
 function ReviewsButton() {
+  const { ratingInfo } = useContext(productContext);
+  const { numOfReviews, averageRating } = ratingInfo;
   return (
     <Reviews>
       <StarContainer>
-        <Star />
-        <Star />
-        <Star />
-        <Star />
-        <Star />
+        <Star fill={averageRating} />
+        <Star fill={averageRating - 1} />
+        <Star fill={averageRating - 2} />
+        <Star fill={averageRating - 3} />
+        <Star fill={averageRating - 4} />
       </StarContainer>
-      160
+      {numOfReviews}
     </Reviews>
   );
 }
