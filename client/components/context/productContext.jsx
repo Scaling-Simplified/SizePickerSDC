@@ -11,14 +11,16 @@ export const ProductProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
   const [currentShoe, setCurrentShoe] = useState({});
   const [outOfStock, setOutOfStock] = useState([]);
+  const [ratingInfo, setRatingInfo] = useState({});
 
   useEffect(() => {
     async function getShoes() {
-      const res = await axios.get('/api/sizes/1');
+      const res = await axios.get('/api/sizes/9');
       const [noStock, hasStock] = dataMassage.getOutOfStock(res.data.skus);
       res.data.skus = hasStock;
       setCurrentShoe(res.data);
       setOutOfStock(noStock);
+      setRatingInfo({ numOfReviews: res.data.numOfReviews, averageRating: res.data.averageRating });
     }
     getShoes();
   }, []);
@@ -33,6 +35,8 @@ export const ProductProvider = ({ children }) => {
       setCurrentShoe,
       outOfStock,
       setOutOfStock,
+      ratingInfo,
+      setRatingInfo,
     }}
     >
       { children }

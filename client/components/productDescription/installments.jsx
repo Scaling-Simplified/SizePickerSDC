@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import ModalLink from '../modalLink';
 
 const StaticContent = styled.span`
@@ -23,3 +24,7 @@ function Installments({ currentId }) {
 }
 
 export default Installments;
+
+Installments.propTypes = {
+  currentId: PropTypes.string.isRequired,
+};
