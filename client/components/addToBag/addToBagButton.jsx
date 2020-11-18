@@ -1,22 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Arrow from './arrow';
 
 const BorderBox = styled.div`
   grid-column: 1;
   grid-row: 1;
   border: 1px solid black;
-  width: 309px;
+  width: 100%;
   height: 50px;
   box-sizing: border-box;
-  z-index: -1;
+  z-index: ${(props) => (props.sizePicker && '-1')};
 `;
 
 const AddToBagButton = styled.div`
   grid-column: 1;
   grid-row: 1;
   background-color: black;
-  width: 309px;
+  width: 100%;
   height: 50px;
   border: 1px solid black;
   box-sizing: border-box;
@@ -39,11 +40,12 @@ const TransparencyWrapper = styled.div`
   &:hover {
     opacity: 50%;
   }
+  transition: opacity .1s;
 `;
 
 const Grid = styled.div`
   display: grid;
-  width: 309px;
+  width: 100%;
   height: 50px;
   box-sizing: border-box;
 `;
@@ -54,21 +56,31 @@ const Text = styled.span`
   padding-top: 3px;
   letter-spacing: 2px;
   font-size: 13px;
+  text-transform: uppercase;
 `;
 
 // TODO: add text here
-function AddToBag() {
+function AddToBag({ sizePicker, label }) {
   return (
     <Grid>
       <AddToBagButton>
         <TransparencyWrapper>
-          <Text>ADD TO BAG</Text>
+          <Text>{label}</Text>
           <Arrow />
         </TransparencyWrapper>
       </AddToBagButton>
-      <BorderBox />
+      <BorderBox sizePicker={sizePicker} />
     </Grid>
   );
 }
 
 export default AddToBag;
+
+AddToBag.defaultProps = {
+  sizePicker: false,
+};
+
+AddToBag.propTypes = {
+  sizePicker: PropTypes.bool,
+  label: PropTypes.string.isRequired,
+};
