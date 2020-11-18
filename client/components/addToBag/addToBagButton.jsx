@@ -56,6 +56,7 @@ const Text = styled.span`
   font-size: 13px;
 `;
 
+// TODO: add text here
 function AddToBag() {
   return (
     <Grid>

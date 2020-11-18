@@ -26,5 +26,5 @@ function Installments({ currentId }) {
 export default Installments;
 
 Installments.propTypes = {
-  currentId: PropTypes.string.isRequired,
+  currentId: PropTypes.number.isRequired,
 };
