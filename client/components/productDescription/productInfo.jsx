@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import ReviewsButton from './reviews';
 import Installments from './installments';
+import ProductContext from '../context/productContext';
 
 const Title = styled.h1`
   font-size: 42px;
@@ -29,18 +30,21 @@ const Price = styled.span`
 `;
 
 function ProductInfo() {
+  const { currentShoe } = useContext(ProductContext);
+  const { id } = currentShoe;
   return (
     <>
       <PreHeader>
         <span>Originals</span>
-        <ReviewsButton
-          onMouseOver={() => {}}
-        />
+        <ReviewsButton />
       </PreHeader>
-      <Title>ZX 2K BOOST SHOES</Title>
-      <Color>Cloud White / Grey Two / Core Black</Color>
-      <Price>$150</Price>
-      <Installments />
+      <Title>{currentShoe.name}</Title>
+      <Color>{currentShoe.color}</Color>
+      <Price>
+        $
+        {currentShoe.price}
+      </Price>
+      <Installments currentId={id} />
     </>
   );
 }
