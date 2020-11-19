@@ -28,7 +28,7 @@ function ReviewsButton() {
   return (
     <Reviews>
       <StarContainer>
-        <Star fill={averageRating} />
+        <Star fill={averageRating - 0} />
         <Star fill={averageRating - 1} />
         <Star fill={averageRating - 2} />
         <Star fill={averageRating - 3} />

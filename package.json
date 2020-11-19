@@ -11,7 +11,7 @@
     "start": "nodemon server/index.js",
     "dev-react": "webpack",
     "seed-db": "node seed.js",
-    "test": "jest"
+    "test": "jest --config ./spec/jest.allTests.config.js"
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
