@@ -25,6 +25,10 @@ function Installments({ currentId }) {
 
 export default Installments;
 
+Installments.defaultProps = {
+  currentId: 6,
+};
+
 Installments.propTypes = {
-  currentId: PropTypes.number.isRequired,
+  currentId: PropTypes.number,
 };
