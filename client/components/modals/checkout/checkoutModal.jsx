@@ -33,7 +33,6 @@ const ModalContent = styled.div`
   width: 50%;
   max-width: 90vw;
   max-height: 92vh;
-  overflow: auto;
   margin: auto;
   padding: 20px;
   border: 1px solid black;
@@ -47,15 +46,21 @@ const Title = styled.h5`
   letter-spacing: 1.5px;
   font-size: 30px;
   margin: 0;
-  z-index: 1;
+  z-index: 2;
 `;
 
 const ProductBagContent = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
-  width: 100%
-  z-index: 1;
+  width: 100%;
+  z-index: 2;
+`;
+
+const ModalContentWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow: auto;
 `;
 
 function CheckoutModal() {
@@ -69,12 +74,14 @@ function CheckoutModal() {
   return (
     <Background show={showCheckout}>
       <ModalContent>
+        <ModalContentWrapper>
+          <Title>Successfully added to bag!</Title>
+          <ProductBagContent>
+            <ProductInfo />
+            <OrderSummary />
+          </ProductBagContent>
+        </ModalContentWrapper>
         <ExitButton onClick={() => setShowCheckout(false)} />
-        <Title>Successfully added to bag!</Title>
-        <ProductBagContent>
-          <ProductInfo />
-          <OrderSummary />
-        </ProductBagContent>
       </ModalContent>
       <ClickableBackground onClick={() => setShowCheckout(false)} />
     </Background>

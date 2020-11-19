@@ -3,13 +3,16 @@ import styled from 'styled-components';
 
 const Button = styled.div`
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
   right: -17px;
   top: -17px;
   background-color: white;
   border: 1px solid black;
-  max-height: 36px;
-  max-width: 36px;
-  z-index: 2;
+  height: 36px;
+  width: 36px;
   cursor: pointer;
   &:active {
     transform: scale(.95, .95);
