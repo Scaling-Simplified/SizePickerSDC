@@ -28,14 +28,14 @@ function WishListButton() {
     id,
     name,
     price,
-    photo_url,
+    photoUrl,
   } = currentShoe;
   const current = {
     _id,
     id,
     name,
     price,
-    photo_url,
+    photoUrl,
   };
   console.log(favorites);
   return (

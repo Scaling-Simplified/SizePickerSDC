@@ -6,15 +6,14 @@ import ExitButton from './exitButton';
 import ProductContext from '../../context/productContext';
 
 const Background = styled.div`
-  display: ${(props) => (props.show ? 'flex' : 'none')};
+  display: flex; /*${(props) => (props.show ? 'flex' : 'none')};*/
+  visibility: ${(props) => (props.show ? 'visible' : 'hidden')};
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   overflow: auto;
-  background-color: rgba(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.7);
 `;
 
 const ClickableBackground = styled.div`
@@ -24,6 +23,9 @@ const ClickableBackground = styled.div`
   width: 100vw;
   height: 100vh;
   cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: ${(props) => (props.show ? '1' : '0')};
+  transition: opacity .2s;
   z-index: -1;
 `;
 
@@ -37,6 +39,9 @@ const ModalContent = styled.div`
   padding: 20px;
   border: 1px solid black;
   box-sizing: border-box;
+  opacity: ${(props) => (props.show ? '1' : '0')};
+  transition: opacity .45s;
+  transition-delay: .1s;
   z-index: 0;
 `;
 
@@ -73,7 +78,7 @@ function CheckoutModal() {
   }, [showCheckout]);
   return (
     <Background show={showCheckout}>
-      <ModalContent>
+      <ModalContent show={showCheckout}>
         <ModalContentWrapper>
           <Title>Successfully added to bag!</Title>
           <ProductBagContent>
@@ -83,7 +88,10 @@ function CheckoutModal() {
         </ModalContentWrapper>
         <ExitButton onClick={() => setShowCheckout(false)} />
       </ModalContent>
-      <ClickableBackground onClick={() => setShowCheckout(false)} />
+      <ClickableBackground
+        show={showCheckout}
+        onClick={() => setShowCheckout(false)}
+      />
     </Background>
   );
 }

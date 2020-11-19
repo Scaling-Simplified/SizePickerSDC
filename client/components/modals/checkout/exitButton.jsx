@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Button = styled.div`
   position: absolute;
@@ -20,9 +21,9 @@ const Button = styled.div`
   transition: transform .1s;
 `;
 
-function ExitButton() {
+function ExitButton({ onClick }) {
   return (
-    <Button>
+    <Button onClick={onClick}>
       <svg width="1.75rem" height="1.75rem" viewBox="0 0 14 24">
         <path d="M13 6l-6 6 6 6M1 6l6 6-6 6" fill="none" stroke="currentColor" strokeMiterlimit="10" strokeWidth="2" />
       </svg>
@@ -31,3 +32,7 @@ function ExitButton() {
 }
 
 export default ExitButton;
+
+ExitButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
+}

@@ -12,6 +12,7 @@ const Container = styled.div`
   padding: 2rem 2.5rem;
   font-family: AdihausDIN,Helvetica,Arial,sans-serif;
   font-size: 14px;
+  border-left: 1px solid rgb(235, 237, 238);
   box-sizing: border-box;
 `;
 
