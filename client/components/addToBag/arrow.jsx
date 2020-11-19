@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function Arrow() {
+function Arrow({ color }) {
   return (
     <svg
       viewBox="-7 0 24 24"
@@ -10,7 +11,7 @@ function Arrow() {
       <path
         d="M17.59 7l5 5-5 5M0 12h22"
         fill="none"
-        stroke="white"
+        stroke={color}
         strokeMiterlimit="10"
         strokeWidth="2"
       />
@@ -19,3 +20,11 @@ function Arrow() {
 }
 
 export default Arrow;
+
+Arrow.defaultProps = {
+  color: 'white',
+};
+
+Arrow.propTypes = {
+  color: PropTypes.string,
+};

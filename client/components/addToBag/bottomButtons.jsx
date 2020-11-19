@@ -16,7 +16,7 @@ function BottomButtons() {
   return (
     <>
       <ButtonsContainer>
-        <AddToBagButton />
+        <AddToBagButton sizePicker label="Add to bag" />
         <WishListButton />
       </ButtonsContainer>
       <MembershipLink />

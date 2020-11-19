@@ -8,8 +8,8 @@ const HeartContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
-  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
   border: 1px solid black;
   margin-left: 10px;
   box-sizing: border-box;
@@ -28,14 +28,14 @@ function WishListButton() {
     id,
     name,
     price,
-    photo_url,
+    photoUrl,
   } = currentShoe;
   const current = {
     _id,
     id,
     name,
     price,
-    photo_url,
+    photoUrl,
   };
   console.log(favorites);
   return (
