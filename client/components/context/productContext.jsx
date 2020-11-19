@@ -12,6 +12,7 @@ export const ProductProvider = ({ children }) => {
   const [currentShoe, setCurrentShoe] = useState({});
   const [outOfStock, setOutOfStock] = useState([]);
   const [ratingInfo, setRatingInfo] = useState({});
+  const [showCheckout, setShowCheckout] = useState(false);
 
   useEffect(() => {
     async function getShoes() {
@@ -37,6 +38,8 @@ export const ProductProvider = ({ children }) => {
       setOutOfStock,
       ratingInfo,
       setRatingInfo,
+      showCheckout,
+      setShowCheckout,
     }}
     >
       { children }

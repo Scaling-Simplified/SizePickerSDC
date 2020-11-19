@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Arrow from './arrow';
+import ProductContext from '../context/productContext';
 
 const BorderBox = styled.div`
   grid-column: 1;
@@ -61,9 +62,10 @@ const Text = styled.span`
 
 // TODO: add text here
 function AddToBag({ sizePicker, label }) {
+  const { setShowCheckout } = useContext(ProductContext);
   return (
     <Grid>
-      <AddToBagButton>
+      <AddToBagButton onClick={() => setShowCheckout(true)}>
         <TransparencyWrapper>
           <Text>{label}</Text>
           <Arrow />
