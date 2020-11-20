@@ -7,16 +7,17 @@ import dataMassage from './dataMassage';
 const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
-  const [selectedSize, setSelectedSize] = useState({ id: null, stock: 100 });
+  const [selectedSize, setSelectedSize] = useState({ id: null, size: null, stock: 100 });
   const [favorites, setFavorites] = useState([]);
   const [currentShoe, setCurrentShoe] = useState({});
   const [outOfStock, setOutOfStock] = useState([]);
   const [ratingInfo, setRatingInfo] = useState({});
   const [showCheckout, setShowCheckout] = useState(false);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     async function getShoes() {
-      const res = await axios.get('/api/sizes/9');
+      const res = await axios.get('/api/shoes/9');
       const [noStock, hasStock] = dataMassage.getOutOfStock(res.data.skus);
       res.data.skus = hasStock;
       setCurrentShoe(res.data);
@@ -40,6 +41,8 @@ export const ProductProvider = ({ children }) => {
       setRatingInfo,
       showCheckout,
       setShowCheckout,
+      cart,
+      setCart,
     }}
     >
       { children }

@@ -86,7 +86,7 @@ function CheckoutModal() {
             <OrderSummary />
           </ProductBagContent>
         </ModalContentWrapper>
-        <ExitButton onClick={() => setShowCheckout(false)} />
+        <ExitButton handleClick={() => setShowCheckout(false)} />
       </ModalContent>
       <ClickableBackground
         show={showCheckout}

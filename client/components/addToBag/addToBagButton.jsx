@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import Arrow from './arrow';
 import ProductContext from '../context/productContext';
 
@@ -52,20 +53,41 @@ const Grid = styled.div`
 `;
 
 const Text = styled.span`
-  font-family: adihaus;
+  font-family: AdihausDIN;
   color: white;
-  padding-top: 3px;
   letter-spacing: 2px;
   font-size: 13px;
+  font-weight: 700;
   text-transform: uppercase;
 `;
 
-// TODO: add text here
 function AddToBag({ sizePicker, label }) {
-  const { setShowCheckout } = useContext(ProductContext);
+  const {
+    showCheckout,
+    setShowCheckout,
+    currentShoe,
+    selectedSize,
+  } = useContext(ProductContext);
+
+  async function addShoeToCart() {
+    const selected = {
+      name: currentShoe.name,
+      itemId: currentShoe.id,
+      color: currentShoe.color,
+      price: currentShoe.price,
+      photoUrl: currentShoe.photoUrl,
+      size: selectedSize.size,
+      stock: selectedSize.stock,
+    };
+
+    const res = await axios.post('/api/cart', selected);
+    console.log(res);
+    setShowCheckout(true);
+  }
+
   return (
     <Grid>
-      <AddToBagButton onClick={() => setShowCheckout(true)}>
+      <AddToBagButton onClick={() => { setShowCheckout(true); }}>
         <TransparencyWrapper>
           <Text>{label}</Text>
           <Arrow />

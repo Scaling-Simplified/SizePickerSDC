@@ -6,10 +6,12 @@ import ProductContext from '../context/productContext';
 
 const Title = styled.h1`
   font-size: 42px;
-  line-height: 2rem;
-  font-family: AdihausDIN Cn;
+  line-height: 38px;
+  font-family: AdihausDIN-Cn,adihausDIN Cn;
   font-style: italic;
   text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1.5px;
   margin: 0;
 `;
 
@@ -24,9 +26,10 @@ const Color = styled.span`
 `;
 
 const Price = styled.span`
-  font-family: Adihaus;
+  font-family: AdihausDIN;
   font-size: 18px;
   margin-top: 20px;
+  font-weight: 700;
 `;
 
 function ProductInfo() {

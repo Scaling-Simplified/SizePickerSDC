@@ -22,6 +22,11 @@ const StarContainer = styled.div`
   flex-direction: row;
 `;
 
+const ReviewsCount = styled.span`
+  font-weight: 700;
+  margin-top: -2px;
+`;
+
 function ReviewsButton() {
   const { ratingInfo } = useContext(productContext);
   const { numOfReviews, averageRating } = ratingInfo;
@@ -34,7 +39,7 @@ function ReviewsButton() {
         <Star fill={averageRating - 3} />
         <Star fill={averageRating - 4} />
       </StarContainer>
-      {numOfReviews}
+      <ReviewsCount>{numOfReviews}</ReviewsCount>
     </Reviews>
   );
 }

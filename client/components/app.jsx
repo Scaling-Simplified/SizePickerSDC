@@ -11,6 +11,7 @@ const Container = styled.div`
   flex-direction: column;
   padding: 2rem 2.5rem;
   font-family: AdihausDIN,Helvetica,Arial,sans-serif;
+  font-weight: 400;
   font-size: 14px;
   border-left: 1px solid rgb(235, 237, 238);
   box-sizing: border-box;
