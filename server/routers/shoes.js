@@ -12,7 +12,7 @@ router.route('/').get(async (req, res) => {
   res.send(product);
 });
 
-router.route('/:itemId').get(async (req, res) => {
+router.route('/:itemId/sizepicker').get(async (req, res) => {
   const { itemId } = req.params;
   const product = await productDb.findOne(itemId).catch((ex) => {
     debug(ex);

@@ -6,7 +6,7 @@ function createServer() {
   const app = express();
   app.use(express.static(`${__dirname}/../public`));
   app.use(express.json());
-  app.use('/api/shoes', sizesRouter);
+  app.use('/api/products', sizesRouter);
   app.use('/api/cart', cartRouter);
   return app;
 }
