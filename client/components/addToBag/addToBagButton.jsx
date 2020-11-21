@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Arrow from './arrow';
+import Spinner from './spinner';
 import ProductContext from '../context/productContext';
 
 const BorderBox = styled.div`
@@ -63,10 +64,11 @@ const Text = styled.span`
 
 function AddToBag({ sizePicker, label }) {
   const {
-    showCheckout,
-    setShowCheckout,
+    checkoutProcess,
+    setCheckoutProcess,
     currentShoe,
     selectedSize,
+    setCart,
   } = useContext(ProductContext);
 
   async function addShoeToCart() {
@@ -79,18 +81,20 @@ function AddToBag({ sizePicker, label }) {
       size: selectedSize.size,
       stock: selectedSize.stock,
     };
-
+    // disable button activate spinner
+    setCheckoutProcess({ adding: true });
     const res = await axios.post('/api/cart', selected);
-    console.log(res);
-    setShowCheckout(true);
+    setCart(res.data);
+    setCheckoutProcess({ show: true });
   }
 
   return (
     <Grid>
-      <AddToBagButton onClick={() => { setShowCheckout(true); }}>
+      <AddToBagButton onClick={() => { addShoeToCart(); }}>
         <TransparencyWrapper>
           <Text>{label}</Text>
-          <Arrow />
+          {!checkoutProcess.adding && <Arrow />}
+          {checkoutProcess.adding && <Spinner />}
         </TransparencyWrapper>
       </AddToBagButton>
       <BorderBox sizePicker={sizePicker} />
