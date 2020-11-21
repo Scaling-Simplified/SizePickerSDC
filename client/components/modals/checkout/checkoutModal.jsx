@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import OrderSummary from './orderSummary';
 import ProductInfo from './productInfo';
@@ -69,28 +69,29 @@ const ModalContentWrapper = styled.div`
 `;
 
 function CheckoutModal() {
-  const { showCheckout, setShowCheckout } = useContext(ProductContext);
+  const { checkoutProcess, setCheckoutProcess } = useContext(ProductContext);
+
   useEffect(() => {
     // eslint-disable-next-line no-unused-expressions
-    showCheckout && (document.body.style.overflow = 'hidden');
+    checkoutProcess.show && (document.body.style.overflow = 'hidden');
     // eslint-disable-next-line no-unused-expressions
-    !showCheckout && (document.body.style.overflow = '');
-  }, [showCheckout]);
+    !checkoutProcess.show && (document.body.style.overflow = '');
+  });
   return (
-    <Background show={showCheckout}>
-      <ModalContent show={showCheckout}>
+    <Background show={checkoutProcess.show}>
+      <ModalContent show={checkoutProcess.show}>
         <ModalContentWrapper>
           <Title>Successfully added to bag!</Title>
           <ProductBagContent>
             <ProductInfo />
-            <OrderSummary />
+            <OrderSummary length={5} total={200} />
           </ProductBagContent>
         </ModalContentWrapper>
-        <ExitButton onClick={() => setShowCheckout(false)} />
+        <ExitButton handleClick={() => setCheckoutProcess({ show: false })} />
       </ModalContent>
       <ClickableBackground
-        show={showCheckout}
-        onClick={() => setShowCheckout(false)}
+        show={checkoutProcess.show}
+        onClick={() => setCheckoutProcess({ show: false })}
       />
     </Background>
   );

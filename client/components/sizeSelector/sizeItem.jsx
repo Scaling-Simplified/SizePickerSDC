@@ -30,7 +30,7 @@ function SizeItem({ size, id, stock }) {
     <StyledSizeBlock
       selected={selected}
       onClick={
-        () => setSelectedSize({ id, stock })
+        () => setSelectedSize({ id, size, stock })
       }
     >
       <span>{ size }</span>

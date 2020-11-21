@@ -21,9 +21,9 @@ const Button = styled.div`
   transition: transform .1s;
 `;
 
-function ExitButton({ onClick }) {
+function ExitButton({ handleClick }) {
   return (
-    <Button onClick={onClick}>
+    <Button onClick={handleClick}>
       <svg width="1.75rem" height="1.75rem" viewBox="0 0 14 24">
         <path d="M13 6l-6 6 6 6M1 6l6 6-6 6" fill="none" stroke="currentColor" strokeMiterlimit="10" strokeWidth="2" />
       </svg>
@@ -34,5 +34,5 @@ function ExitButton({ onClick }) {
 export default ExitButton;
 
 ExitButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
-}
+  handleClick: PropTypes.func.isRequired,
+};

@@ -37,7 +37,6 @@ function WishListButton() {
     price,
     photoUrl,
   };
-  console.log(favorites);
   return (
     <HeartContainer onClick={() => {
       if (_.find(favorites, current)) {

@@ -6,7 +6,8 @@ import ProductContext from '../context/productContext';
 
 const SelectSizeText = styled.span`
   margin: 20px 0;
-  font-family: adihaus;
+  font-family: AdihausDIN;
+  font-weight: 700;
   box-sizing: border-box;
 `;
 
