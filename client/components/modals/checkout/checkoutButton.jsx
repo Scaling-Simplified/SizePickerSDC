@@ -31,9 +31,9 @@ const TransparencyWrapper = styled.div`
 `;
 
 const Text = styled.span`
-  font-family: adihaus;
+  font-family: AdihausDIN;
+  font-weight: 700;
   color: black;
-  padding-top: 3px;
   letter-spacing: 2px;
   font-size: 13px;
   text-transform: uppercase;

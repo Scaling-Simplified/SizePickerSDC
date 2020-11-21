@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import CheckoutButton from './checkoutButton';
 import ViewBagButton from '../../addToBag/addToBagButton';
 
@@ -17,8 +18,8 @@ const LineItem = styled.div`
   padding-bottom: 2px;
   border-bottom: ${(props) => (props.border && '1px solid black')};
   margin-bottom: ${(props) => (props.border && '6px')};
-  font-family: ${(props) => (props.bold && 'adihaus')};
-  padding-top: ${(props) => (props.bold && '2px')};
+  font-family: AdihausDIN;
+  font-weight: ${(props) => (props.bold && '700')};
   box-sizing: border-box;
 `;
 
@@ -36,14 +37,21 @@ const ButtonWrapper = styled.div`
   margin-top: 26px;
 `;
 
-function OrderSummary() {
+function OrderSummary({ length, total }) {
   return (
     <Wrapper>
       <h5>Your Bag</h5>
-      <p>5 items</p>
+      <p>
+        {length}
+        {' '}
+        items
+      </p>
       <LineItem>
         <span>Total Product Cost:</span>
-        <Price>$200</Price>
+        <Price>
+          $
+          {total}
+        </Price>
       </LineItem>
       <LineItem border>
         <span>Total Delivery Cost:</span>
@@ -51,7 +59,10 @@ function OrderSummary() {
       </LineItem>
       <LineItem bold>
         <span>Total:</span>
-        <Price>$200</Price>
+        <Price>
+          $
+          {total}
+        </Price>
       </LineItem>
       <p>Installment options</p>
       <Installments>
@@ -66,3 +77,8 @@ function OrderSummary() {
 }
 
 export default OrderSummary;
+
+OrderSummary.propTypes = {
+  length: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+};

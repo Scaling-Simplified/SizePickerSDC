@@ -12,12 +12,17 @@ export const ProductProvider = ({ children }) => {
   const [currentShoe, setCurrentShoe] = useState({});
   const [outOfStock, setOutOfStock] = useState([]);
   const [ratingInfo, setRatingInfo] = useState({});
-  const [showCheckout, setShowCheckout] = useState(false);
+  const [checkoutProcess, setCheckoutProcess] = useState({
+    adding: false,
+    added: false,
+    show: false,
+  });
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
     async function getShoes() {
-      const res = await axios.get('/api/shoes/9');
+      const res = await axios.get('/api/products/9/sizepicker');
+      console.log(document.URL);
       const [noStock, hasStock] = dataMassage.getOutOfStock(res.data.skus);
       res.data.skus = hasStock;
       setCurrentShoe(res.data);
@@ -39,8 +44,8 @@ export const ProductProvider = ({ children }) => {
       setOutOfStock,
       ratingInfo,
       setRatingInfo,
-      showCheckout,
-      setShowCheckout,
+      checkoutProcess,
+      setCheckoutProcess,
       cart,
       setCart,
     }}

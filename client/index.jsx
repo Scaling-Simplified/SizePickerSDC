@@ -10,5 +10,5 @@ ReactDOM.render(
       <App />
     </BrowserRouter>
   </ProductProvider>,
-  document.getElementById('app'),
+  document.getElementById('SizePicker'),
 );
