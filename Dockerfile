@@ -13,7 +13,6 @@ COPY package*.json ./
 
 # Does your app have any dependencies that should be installed?
 RUN npm install
-RUN npm run dev-react
 
 COPY . .
 
@@ -21,4 +20,4 @@ COPY . .
 EXPOSE 3002
 
 # How do you start your app?
-CMD [ "npm", "run", "docker" ]
+CMD npm run dev-react && npm run docker
