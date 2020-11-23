@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const sizesRouter = require('./routers/shoes');
 const cartRouter = require('./routers/cart');
 
@@ -8,6 +9,9 @@ function createServer() {
   app.use(express.json());
   app.use('/api/products', sizesRouter);
   app.use('/api/cart', cartRouter);
+  app.get('/:itemId', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/index.html'));
+  });
   return app;
 }
 

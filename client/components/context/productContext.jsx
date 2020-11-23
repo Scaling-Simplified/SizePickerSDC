@@ -21,7 +21,11 @@ export const ProductProvider = ({ children }) => {
 
   useEffect(() => {
     async function getShoes() {
-      const res = await axios.get('/api/products/9/sizepicker');
+      const url = (document.URL);
+      const parseURL = url.split('/');
+      const itemId = Number(parseURL[parseURL.length - 1]) || 0;
+
+      const res = await axios.get(`/api/products/${itemId}/sizepicker`);
       const [noStock, hasStock] = dataMassage.getOutOfStock(res.data.skus);
       res.data.skus = hasStock;
       setCurrentShoe(res.data);

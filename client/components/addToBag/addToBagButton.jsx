@@ -83,9 +83,10 @@ function AddToBag({ sizePicker, label }) {
     };
     // disable button activate spinner
     setCheckoutProcess({ adding: true });
-    const res = await axios.post('/api/cart', selected);
-    setCart(res.data);
-    setCheckoutProcess({ show: true });
+    //const res = await axios.post('/api/cart', selected);
+    //setCart(res.data);
+
+    setTimeout(() => setCheckoutProcess({ adding: false, show: true }), 1200);
   }
 
   return (

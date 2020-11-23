@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Products = require('./db/models/product.js');
 const testData = require('./dataGenerator.js');
 
-mongoose.connect('mongodb://localhost/sizepicker',
+mongoose.connect('mongodb://database/sizepicker',
   { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => debug('Connected to sizepicker DB'));
 
