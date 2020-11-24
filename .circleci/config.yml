@@ -46,7 +46,7 @@ jobs:
       - run:
           name: Deploy over SSH
           command: |
-            ssh -o StrictHostKeyChecking=no ec2-user@ec2-35-160-105-13.us-west-2.compute.amazonaws.com <<-'ENDSSH'
+            ssh -o StrictHostKeyChecking=no ec2-user@ec2-35-160-105-13.us-west-2.compute.amazonaws.com
             cd FEC/
             docker-compose pull && docker-compose up -d
             ENDSSH
