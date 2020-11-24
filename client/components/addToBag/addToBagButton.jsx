@@ -62,7 +62,7 @@ const Text = styled.span`
   text-transform: uppercase;
 `;
 
-function AddToBag({ sizePicker, label }) {
+function AddToBag({ sizePicker, label, handleClick }) {
   const {
     checkoutProcess,
     setCheckoutProcess,
@@ -91,7 +91,7 @@ function AddToBag({ sizePicker, label }) {
 
   return (
     <Grid>
-      <AddToBagButton onClick={() => { addShoeToCart(); }}>
+      <AddToBagButton onClick={handleClick}>
         <TransparencyWrapper>
           <Text>{label}</Text>
           {!checkoutProcess.adding && <Arrow />}
@@ -107,9 +107,11 @@ export default AddToBag;
 
 AddToBag.defaultProps = {
   sizePicker: false,
+  handleClick: () => {},
 };
 
 AddToBag.propTypes = {
   sizePicker: PropTypes.bool,
   label: PropTypes.string.isRequired,
+  handleClick: PropTypes.func,
 };

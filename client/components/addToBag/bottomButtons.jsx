@@ -14,7 +14,7 @@ const ButtonsContainer = styled.div`
 `;
 
 function BottomButtons() {
-  const { checkoutProcess } = useContext(ProductContext);
+  const { checkoutProcess, setCheckoutProcess } = useContext(ProductContext);
   let label;
   if (checkoutProcess.adding) {
     label = 'Adding...';
@@ -24,10 +24,15 @@ function BottomButtons() {
     label = 'Add to bag';
   }
 
+  async function addShoeToCart() {
+    setCheckoutProcess({ adding: true });
+    setTimeout(() => setCheckoutProcess({ adding: false, show: true }), 1200);
+  }
+
   return (
     <>
       <ButtonsContainer>
-        <AddToBagButton sizePicker label={label} />
+        <AddToBagButton sizePicker label={label} handleClick={addShoeToCart} />
         <WishListButton />
       </ButtonsContainer>
       <MembershipLink />
