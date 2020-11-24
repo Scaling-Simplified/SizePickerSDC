@@ -5,7 +5,7 @@ import { ProductProvider } from './components/context/productContext';
 
 ReactDOM.render(
   <ProductProvider>
-    <App />
+    <App id="sizepickerServiceComponent" />
   </ProductProvider>,
   document.getElementById('SizePicker'),
 );
