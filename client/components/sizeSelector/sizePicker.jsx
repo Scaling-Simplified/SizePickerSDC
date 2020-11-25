@@ -20,7 +20,7 @@ const LowStockText = styled.span`
 `;
 
 function SizeSelector() {
-  const { selectedSize } = useContext(ProductContext);
+  const { selectedSize, setOutOfStockModal } = useContext(ProductContext);
   return (
     <>
       <SelectSizeText>Select size</SelectSizeText>
@@ -31,7 +31,7 @@ function SizeSelector() {
           {`Only ${selectedSize.stock} left in stock`}
         </LowStockText>
         )}
-      <ModalLink message="Size out of stock?" />
+      <ModalLink handleClick={() => setOutOfStockModal(true)} message="Size out of stock?" />
     </>
   );
 }

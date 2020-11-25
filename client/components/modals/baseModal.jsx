@@ -1,4 +1,7 @@
+import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import ExitButton from './checkout/exitButton';
 
 const Background = styled.div`
   display: flex; /*${(props) => (props.show ? 'flex' : 'none')};*/
@@ -54,6 +57,32 @@ const ModalContentWrapper = styled.div`
   height: 100%;
   overflow: auto;
 `;
+
+function BaseModal({
+  title, show, handleExit, children,
+}) {
+  return (
+    <Background show={show}>
+      <ModalContent show={show}>
+        <ModalContentWrapper>
+          <Title>{title}</Title>
+          {children}
+        </ModalContentWrapper>
+        <ExitButton handleClick={handleExit} />
+      </ModalContent>
+      <ClickableBackground show={show} onClick={handleExit} />
+    </Background>
+  );
+}
+
+BaseModal.propTypes = {
+  title: PropTypes.string.isRequired,
+  show: PropTypes.bool.isRequired,
+  handleExit: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
+};
+
+export default BaseModal;
 
 export {
   Background,
