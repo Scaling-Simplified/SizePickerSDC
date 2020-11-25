@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import ExitButton from './checkout/exitButton';
@@ -61,6 +61,13 @@ const ModalContentWrapper = styled.div`
 function BaseModal({
   title, show, handleExit, children,
 }) {
+  // eslint-disable-next-line no-unused-expressions
+  show && (document.body.style.overflow = 'hidden');
+  function handleClick() {
+    // eslint-disable-next-line no-unused-expressions
+    document.body.style.overflow = '';
+    handleExit();
+  }
   return (
     <Background show={show}>
       <ModalContent show={show}>
@@ -68,9 +75,9 @@ function BaseModal({
           <Title>{title}</Title>
           {children}
         </ModalContentWrapper>
-        <ExitButton handleClick={handleExit} />
+        <ExitButton handleClick={handleClick} />
       </ModalContent>
-      <ClickableBackground show={show} onClick={handleExit} />
+      <ClickableBackground show={show} onClick={handleClick} />
     </Background>
   );
 }

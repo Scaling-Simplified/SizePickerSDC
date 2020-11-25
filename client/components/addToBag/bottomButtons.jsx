@@ -14,25 +14,43 @@ const ButtonsContainer = styled.div`
 `;
 
 function BottomButtons() {
-  const { checkoutProcess, setCheckoutProcess } = useContext(ProductContext);
+  const {
+    modalView,
+    setModalView,
+    // currentShoe,
+    // selectedSize,
+    // setCart,
+  } = useContext(ProductContext);
   let label;
-  if (checkoutProcess.adding) {
+  if (modalView.checkoutAdding) {
     label = 'Adding...';
-  } else if (checkoutProcess.added) {
-    label = 'Added';
+  } else if (modalView.checkoutShow) {
+    label = 'Added!';
   } else {
     label = 'Add to bag';
   }
 
   async function addShoeToCart() {
-    setCheckoutProcess({ adding: true });
-    setTimeout(() => setCheckoutProcess({ adding: false, show: true }), 1200);
+    // const selected = {
+    //   name: currentShoe.name,
+    //   itemId: currentShoe.id,
+    //   color: currentShoe.color,
+    //   price: currentShoe.price,
+    //   photoUrl: currentShoe.photoUrl,
+    //   size: selectedSize.size,
+    //   stock: selectedSize.stock,
+    // };
+    // const res = await axios.post('/api/cart', selected);
+    // setCart(res.data);
+
+    setModalView({ checkoutAdding: true });
+    setTimeout(() => setModalView({ checkoutAdding: false, checkoutShow: true }), 1200);
   }
 
   return (
     <>
       <ButtonsContainer>
-        <AddToBagButton sizePicker label={label} handleClick={addShoeToCart} />
+        <AddToBagButton label={label} handleClick={addShoeToCart} icon={modalView} />
         <WishListButton />
       </ButtonsContainer>
       <MembershipLink />

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import OrderSummary from './orderSummary';
 import ProductInfo from './productInfo';
@@ -14,22 +14,15 @@ const ProductBagContent = styled.div`
 `;
 
 function CheckoutModal() {
-  const { checkoutProcess, setCheckoutProcess } = useContext(ProductContext);
-
-  useEffect(() => {
-    // eslint-disable-next-line no-unused-expressions
-    checkoutProcess.show && (document.body.style.overflow = 'hidden');
-    // eslint-disable-next-line no-unused-expressions
-    !checkoutProcess.show && (document.body.style.overflow = '');
-  });
+  const { modalView, setModalView } = useContext(ProductContext);
   return (
     <BaseModal
       title="Successfully added to bag!"
-      show={checkoutProcess.show}
-      handleExit={() => setCheckoutProcess({
-        show: false,
-        adding: false,
-        added: false,
+      show={modalView.checkoutShow}
+      handleExit={() => setModalView({
+        checkoutShow: false,
+        checkoutAdding: false,
+        checkoutAdded: false,
       })}
     >
       <ProductBagContent>
