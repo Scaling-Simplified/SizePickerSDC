@@ -15,6 +15,7 @@ const StyledSizeBlock = styled.span`
   cursor: pointer;
   margin-top: 0;
   background-color: ${(props) => props.selected && 'black'};
+  font-weight: ${(props) => props.selected && '800'};
   color: ${(props) => props.selected && 'white'};
   &:hover {
     background-color: black;

@@ -17,6 +17,7 @@ export const ProductProvider = ({ children }) => {
     added: false,
     show: false,
   });
+  const [outOfStockModal, setOutOfStockModal] = useState(false);
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
@@ -51,6 +52,8 @@ export const ProductProvider = ({ children }) => {
       setCheckoutProcess,
       cart,
       setCart,
+      outOfStockModal,
+      setOutOfStockModal,
     }}
     >
       { children }
