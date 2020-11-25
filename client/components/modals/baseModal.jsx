@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import ExitButton from './checkout/exitButton';
+import ProductContext from '../context/productContext';
 
 const Background = styled.div`
   display: flex; /*${(props) => (props.show ? 'flex' : 'none')};*/
@@ -30,8 +31,8 @@ const ClickableBackground = styled.div`
 const ModalContent = styled.div`
   position: relative;
   background-color: white;
-  width: 50%;
-  max-width: 90vw;
+  width: ${(props) => (props.wide ? '72%' : '50%')};
+  max-width: 1200px;
   max-height: 92vh;
   margin: auto;
   padding: 20px;
@@ -48,6 +49,7 @@ const Title = styled.h5`
   text-transform: uppercase;
   letter-spacing: 1.5px;
   font-size: 30px;
+  line-height: 28px;
   margin: 0;
   z-index: 2;
 `;
@@ -61,16 +63,24 @@ const ModalContentWrapper = styled.div`
 function BaseModal({
   title, show, handleExit, children,
 }) {
+  const { modalView } = useContext(ProductContext);
+  // eslint-disable-next-line no-unused-expressions
+  show && (document.body.style.overflow = 'hidden');
+  function handleClick() {
+    // eslint-disable-next-line no-unused-expressions
+    document.body.style.overflow = '';
+    handleExit();
+  }
   return (
     <Background show={show}>
-      <ModalContent show={show}>
+      <ModalContent wide={modalView.creatorsClub} show={show}>
         <ModalContentWrapper>
           <Title>{title}</Title>
           {children}
         </ModalContentWrapper>
-        <ExitButton handleClick={handleExit} />
+        <ExitButton handleClick={handleClick} />
       </ModalContent>
-      <ClickableBackground show={show} onClick={handleExit} />
+      <ClickableBackground show={show} onClick={handleClick} />
     </Background>
   );
 }

@@ -12,12 +12,14 @@ export const ProductProvider = ({ children }) => {
   const [currentShoe, setCurrentShoe] = useState({});
   const [outOfStock, setOutOfStock] = useState([]);
   const [ratingInfo, setRatingInfo] = useState({});
-  const [checkoutProcess, setCheckoutProcess] = useState({
-    adding: false,
-    added: false,
-    show: false,
+  const [modalView, setModalView] = useState({
+    checkoutAdding: false,
+    checkoutAdded: false,
+    checkoutShow: false,
+    outOfStock: false,
+    installments: false,
+    creatorsClub: false,
   });
-  const [outOfStockModal, setOutOfStockModal] = useState(false);
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
@@ -48,12 +50,10 @@ export const ProductProvider = ({ children }) => {
       setOutOfStock,
       ratingInfo,
       setRatingInfo,
-      checkoutProcess,
-      setCheckoutProcess,
       cart,
       setCart,
-      outOfStockModal,
-      setOutOfStockModal,
+      modalView,
+      setModalView,
     }}
     >
       { children }

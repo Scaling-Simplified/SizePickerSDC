@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import ModalLink from '../modalLink';
 import DeliveryIcon from './deliveryIcon';
 
@@ -10,15 +11,21 @@ const Wrapper = styled.div`
   margin-top: 20px;
 `;
 
-function MembershipLink() {
+function MembershipLink({ handleClick, message }) {
   return (
     <Wrapper>
       <DeliveryIcon />
       <ModalLink
-        message="JOIN CREATORS CLUB TO GET UNLIMITED FREE SHIPPING, RETURNS, & EXCHANGES"
+        message={message}
+        handleClick={handleClick}
       />
     </Wrapper>
   );
 }
 
 export default MembershipLink;
+
+MembershipLink.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+  message: PropTypes.string.isRequired,
+};

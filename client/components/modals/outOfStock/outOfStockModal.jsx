@@ -4,13 +4,13 @@ import ProductContext from '../../context/productContext';
 import BaseModal from '../baseModal';
 
 function OutOfStockModal() {
-  const { outOfStockModal, setOutOfStockModal } = useContext(ProductContext);
+  const { modalView, setModalView } = useContext(ProductContext);
   const message = 'Select your size and we\'ll email you if it\'s back in stock';
   return (
     <BaseModal
       title="Find my size"
-      show={outOfStockModal}
-      handleExit={() => setOutOfStockModal(false)}
+      show={modalView.outOfStock}
+      handleExit={() => setModalView({ outOfStock: false })}
     >
       <p>{message}</p>
     </BaseModal>

@@ -12,7 +12,7 @@ const SelectSizeText = styled.span`
 `;
 
 const LowStockText = styled.span`
-  color: #e63f3f; /* TODO: find real color */
+  color: #e63f3f;
   margin-top: 5px;
   margin-bottom: 14px;
   line-height: 20px;
@@ -20,7 +20,7 @@ const LowStockText = styled.span`
 `;
 
 function SizeSelector() {
-  const { selectedSize, setOutOfStockModal } = useContext(ProductContext);
+  const { selectedSize, setModalView } = useContext(ProductContext);
   return (
     <>
       <SelectSizeText>Select size</SelectSizeText>
@@ -31,7 +31,7 @@ function SizeSelector() {
           {`Only ${selectedSize.stock} left in stock`}
         </LowStockText>
         )}
-      <ModalLink handleClick={() => setOutOfStockModal(true)} message="Size out of stock?" />
+      <ModalLink handleClick={() => setModalView({ outOfStock: true })} message="Size out of stock?" />
     </>
   );
 }

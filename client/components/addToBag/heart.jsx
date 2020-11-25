@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   &:hover {
     opacity: 50%;
   }
+  transition: opacity .1s;
 `;
 
 function Heart() {

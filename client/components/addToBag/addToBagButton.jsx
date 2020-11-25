@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 import Arrow from './arrow';
 import Spinner from './spinner';
-import ProductContext from '../context/productContext';
+import Checkmark from './checkmark';
 
 const BorderBox = styled.div`
   grid-column: 1;
@@ -13,7 +12,7 @@ const BorderBox = styled.div`
   width: 100%;
   height: 50px;
   box-sizing: border-box;
-  z-index: ${(props) => (props.sizePicker && '-1')};
+  z-index: -1;
 `;
 
 const AddToBagButton = styled.div`
@@ -62,43 +61,18 @@ const Text = styled.span`
   text-transform: uppercase;
 `;
 
-function AddToBag({ sizePicker, label, handleClick }) {
-  const {
-    checkoutProcess,
-    setCheckoutProcess,
-    currentShoe,
-    selectedSize,
-    setCart,
-  } = useContext(ProductContext);
-
-  async function addShoeToCart() {
-    const selected = {
-      name: currentShoe.name,
-      itemId: currentShoe.id,
-      color: currentShoe.color,
-      price: currentShoe.price,
-      photoUrl: currentShoe.photoUrl,
-      size: selectedSize.size,
-      stock: selectedSize.stock,
-    };
-    // disable button activate spinner
-    setCheckoutProcess({ adding: true });
-    //const res = await axios.post('/api/cart', selected);
-    //setCart(res.data);
-
-    setTimeout(() => setCheckoutProcess({ adding: false, show: true }), 1200);
-  }
-
+function AddToBag({ label, handleClick, icon }) {
   return (
     <Grid>
       <AddToBagButton onClick={handleClick}>
         <TransparencyWrapper>
           <Text>{label}</Text>
-          {!checkoutProcess.adding && <Arrow />}
-          {checkoutProcess.adding && <Spinner />}
+          {(icon.checkoutAdding && <Spinner />)
+          || (icon.checkoutShow && <Checkmark />)
+          || <Arrow />}
         </TransparencyWrapper>
       </AddToBagButton>
-      <BorderBox sizePicker={sizePicker} />
+      <BorderBox />
     </Grid>
   );
 }
@@ -106,12 +80,15 @@ function AddToBag({ sizePicker, label, handleClick }) {
 export default AddToBag;
 
 AddToBag.defaultProps = {
-  sizePicker: false,
   handleClick: () => {},
+  icon: { checkoutAdding: false, checkoutShow: false },
 };
 
 AddToBag.propTypes = {
-  sizePicker: PropTypes.bool,
   label: PropTypes.string.isRequired,
   handleClick: PropTypes.func,
+  icon: PropTypes.shape({
+    checkoutAdding: PropTypes.bool,
+    checkoutShow: PropTypes.bool,
+  }),
 };
