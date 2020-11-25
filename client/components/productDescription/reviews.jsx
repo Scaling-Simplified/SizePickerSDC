@@ -9,6 +9,9 @@ const Reviews = styled.a`
   cursor: pointer;
   background-color: 'white';
   color: 'black';
+  &:link {
+    color: black;
+  }
   &:visited {
     color: black;
   }
