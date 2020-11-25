@@ -10,9 +10,9 @@ const ButtonWrapper = styled.div`
   line-height: 15px;
 `;
 
-function ModalLink({ message }) {
+function ModalLink({ message, handleClick }) {
   return (
-    <ButtonWrapper>
+    <ButtonWrapper onClick={handleClick}>
       <HoverLink message={message} />
     </ButtonWrapper>
   );
@@ -20,6 +20,11 @@ function ModalLink({ message }) {
 
 export default ModalLink;
 
+ModalLink.defaultProps = {
+  handleClick: () => {},
+};
+
 ModalLink.propTypes = {
   message: PropTypes.string.isRequired,
+  handleClick: PropTypes.func,
 };

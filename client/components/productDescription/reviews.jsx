@@ -3,12 +3,15 @@ import styled from 'styled-components';
 import Star from './star';
 import productContext from '../context/productContext';
 
-const Reviews = styled.span`
+const Reviews = styled.a`
   text-decoration: underline;
   display: flex;
   cursor: pointer;
   background-color: 'white';
   color: 'black';
+  &:visited {
+    color: black;
+  }
   &:hover {
     background-color: black;
     color: white
@@ -31,8 +34,8 @@ function ReviewsButton() {
   const { ratingInfo } = useContext(productContext);
   const { numOfReviews, averageRating } = ratingInfo;
   return (
-    <Reviews>
-      <StarContainer href="#Reviews">
+    <Reviews href="#Reviews">
+      <StarContainer>
         <Star fill={averageRating - 0} />
         <Star fill={averageRating - 1} />
         <Star fill={averageRating - 2} />

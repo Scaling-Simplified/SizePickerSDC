@@ -4,6 +4,7 @@ import ProductInfo from './productDescription/productInfo';
 import SizePicker from './sizeSelector/sizePicker';
 import BottomButtons from './addToBag/bottomButtons';
 import CheckoutModal from './modals/checkout/checkoutModal';
+import OutOfStockModal from './modals/outOfStock/outOfStockModal';
 
 const Container = styled.div`
   max-width: 450px;
@@ -39,6 +40,7 @@ function App() {
       <SizePicker />
       <BottomButtons />
       <CheckoutModal />
+      <OutOfStockModal />
     </Container>
   );
 }
