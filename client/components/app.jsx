@@ -6,6 +6,7 @@ import BottomButtons from './addToBag/bottomButtons';
 import CheckoutModal from './modals/checkout/checkoutModal';
 import OutOfStockModal from './modals/outOfStock/outOfStockModal';
 import InstallmentsModal from './modals/installments/installmentsModal';
+import CreatorsClubModal from './modals/creatorsClub/creatorsClubModal';
 
 const Container = styled.div`
   max-width: 450px;
@@ -43,6 +44,7 @@ function App() {
       <CheckoutModal />
       <OutOfStockModal />
       <InstallmentsModal />
+      <CreatorsClubModal />
     </Container>
   );
 }

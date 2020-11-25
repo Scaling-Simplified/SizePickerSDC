@@ -53,7 +53,10 @@ function BottomButtons() {
         <AddToBagButton label={label} handleClick={addShoeToCart} icon={modalView} />
         <WishListButton />
       </ButtonsContainer>
-      <MembershipLink />
+      <MembershipLink
+        handleClick={() => setModalView({ creatorsClub: true })}
+        message="JOIN CREATORS CLUB TO GET UNLIMITED FREE SHIPPING, RETURNS, & EXCHANGES"
+      />
     </>
   );
 }

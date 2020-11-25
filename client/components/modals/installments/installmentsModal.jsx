@@ -2,10 +2,10 @@
 import React, { useContext } from 'react';
 import BaseModal from '../baseModal';
 import ProductContext from '../../context/productContext';
+import HoverLink from '../../hoverLink';
 
 function InstallmentsModal() {
   const { modalView, setModalView } = useContext(ProductContext);
-  console.log(modalView.installments);
   return (
     <BaseModal
       title="Paying in installments"
@@ -25,7 +25,11 @@ function InstallmentsModal() {
       </p>
       <br />
       <p>
-        With Afterpay, make 4 interest-free payments. You must be over 18, a resident of the U.S., and meet additional eligibility criteria to qualify. Late fees may apply. Click here for complete terms. Loans to California residents made or arranged are pursuant to a California Finance Lenders Law license.
+        With Afterpay, make 4 interest-free payments. You must be over 18, a resident of the U.S., and meet additional eligibility criteria to qualify. Late fees may apply. Click
+        {' '}
+        <HoverLink message="here" />
+        {' '}
+        for complete terms. Loans to California residents made or arranged are pursuant to a California Finance Lenders Law license.
       </p>
     </BaseModal>
   );
