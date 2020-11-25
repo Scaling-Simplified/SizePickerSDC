@@ -40,4 +40,25 @@ const ModalContent = styled.div`
   z-index: 0;
 `;
 
-export { Background, ClickableBackground, ModalContent };
+const Title = styled.h5`
+  font-family: AdineuePRO,Helvetica,Arial,sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 30px;
+  margin: 0;
+  z-index: 2;
+`;
+
+const ModalContentWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+`;
+
+export {
+  Background,
+  ClickableBackground,
+  ModalContentWrapper,
+  ModalContent,
+  Title,
+};

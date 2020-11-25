@@ -4,16 +4,13 @@ import OrderSummary from './orderSummary';
 import ProductInfo from './productInfo';
 import ExitButton from './exitButton';
 import ProductContext from '../../context/productContext';
-import { Background, ClickableBackground, ModalContent } from '../baseModal';
-
-const Title = styled.h5`
-  font-family: AdineuePRO,Helvetica,Arial,sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-size: 30px;
-  margin: 0;
-  z-index: 2;
-`;
+import {
+  Background,
+  ClickableBackground,
+  ModalContentWrapper,
+  ModalContent,
+  Title,
+} from '../baseModal';
 
 const ProductBagContent = styled.div`
   display: flex;
@@ -21,12 +18,6 @@ const ProductBagContent = styled.div`
   margin-top: 20px;
   width: 100%;
   z-index: 2;
-`;
-
-const ModalContentWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  overflow: auto;
 `;
 
 function CheckoutModal() {
@@ -48,7 +39,13 @@ function CheckoutModal() {
             <OrderSummary length={5} total={200} />
           </ProductBagContent>
         </ModalContentWrapper>
-        <ExitButton handleClick={() => setCheckoutProcess({ show: false })} />
+        <ExitButton
+          handleClick={() => setCheckoutProcess({
+            show: false,
+            adding: false,
+            added: false,
+          })}
+        />
       </ModalContent>
       <ClickableBackground
         show={checkoutProcess.show}

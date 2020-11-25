@@ -32,7 +32,7 @@ function ReviewsButton() {
   const { numOfReviews, averageRating } = ratingInfo;
   return (
     <Reviews>
-      <StarContainer>
+      <StarContainer href="#Reviews">
         <Star fill={averageRating - 0} />
         <Star fill={averageRating - 1} />
         <Star fill={averageRating - 2} />

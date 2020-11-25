@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
+import ProductContext from '../../context/productContext';
 
 const Wrapper = styled.div`
   display: flex;
@@ -35,16 +36,28 @@ const Image = styled.img`
 `;
 
 function ProductInfo() {
+  const { currentShoe, selectedSize } = useContext(ProductContext);
   return (
     <Wrapper>
       <Column>
         <Image />
       </Column>
       <Column>
-        <Title>ZX 2K BOOST SHOES</Title>
-        <Price>$150</Price>
-        <p>Color: Cloud White / Cloud White / Grey One</p>
-        <p>Size: M 10 / W 11</p>
+        <Title>{currentShoe.name}</Title>
+        <Price>
+          $
+          {currentShoe.price}
+        </Price>
+        <p>
+          Color:
+          { }
+          {currentShoe.color}
+        </p>
+        <p>
+          Size:
+          { }
+          {selectedSize.size}
+        </p>
         <p>Quantity: 1</p>
       </Column>
     </Wrapper>
