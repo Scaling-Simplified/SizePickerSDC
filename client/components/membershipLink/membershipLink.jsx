@@ -8,7 +8,6 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  margin-top: 20px;
 `;
 
 function MembershipLink({ handleClick, message }) {

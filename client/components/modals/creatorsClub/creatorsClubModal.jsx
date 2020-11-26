@@ -11,6 +11,7 @@ function CreatorsClubModal() {
       title="JOIN CREATORS CLUB TO GET UNLIMITED FREE SHIPPING, RETURNS, & EXCHANGES"
       show={modalView.creatorsClub}
       handleExit={() => setModalView({ creatorsClub: false })}
+      wide
     >
       <p>
         <HoverLink message="Sign up" />
