@@ -7,6 +7,7 @@ import CheckoutModal from './modals/checkout/checkoutModal';
 import OutOfStockModal from './modals/outOfStock/outOfStockModal';
 import InstallmentsModal from './modals/installments/installmentsModal';
 import CreatorsClubModal from './modals/creatorsClub/creatorsClubModal';
+import ReturnsModal from './modals/returns/returnsModal';
 
 const Container = styled.div`
   max-width: 450px;
@@ -45,6 +46,7 @@ function App() {
       <OutOfStockModal />
       <InstallmentsModal />
       <CreatorsClubModal />
+      <ReturnsModal />
     </Container>
   );
 }

@@ -19,6 +19,7 @@ export const ProductProvider = ({ children }) => {
     outOfStock: false,
     installments: false,
     creatorsClub: false,
+    returns: false,
   });
   const [cart, setCart] = useState([]);
 

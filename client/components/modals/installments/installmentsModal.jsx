@@ -12,6 +12,7 @@ function InstallmentsModal() {
       show={modalView.installments}
       handleExit={() => setModalView({ installments: false })}
     >
+      <br />
       <p>
         Want to spread out the cost of your order with adidas? Select ‘Affirm’, ‘Klarna‘, or ‘Afterpay‘ as your payment method at checkout to pay in interest-free installments, with no hidden fees.
       </p>

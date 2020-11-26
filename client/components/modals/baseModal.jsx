@@ -1,8 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import ExitButton from './checkout/exitButton';
-import ProductContext from '../context/productContext';
 
 const Background = styled.div`
   display: flex; /*${(props) => (props.show ? 'flex' : 'none')};*/
@@ -61,9 +60,8 @@ const ModalContentWrapper = styled.div`
 `;
 
 function BaseModal({
-  title, show, handleExit, children,
+  title, show, handleExit, children, wide,
 }) {
-  const { modalView } = useContext(ProductContext);
   // eslint-disable-next-line no-unused-expressions
   show && (document.body.style.overflow = 'hidden');
   function handleClick() {
@@ -73,7 +71,7 @@ function BaseModal({
   }
   return (
     <Background show={show}>
-      <ModalContent wide={modalView.creatorsClub} show={show}>
+      <ModalContent wide={wide} show={show}>
         <ModalContentWrapper>
           <Title>{title}</Title>
           {children}
@@ -85,11 +83,16 @@ function BaseModal({
   );
 }
 
+BaseModal.defaultProps = {
+  wide: false,
+};
+
 BaseModal.propTypes = {
   title: PropTypes.string.isRequired,
   show: PropTypes.bool.isRequired,
   handleExit: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
+  wide: PropTypes.bool,
 };
 
 export default BaseModal;

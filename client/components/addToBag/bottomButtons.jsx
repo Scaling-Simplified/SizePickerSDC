@@ -10,6 +10,7 @@ const ButtonsContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: 40px;
+  margin-bottom: 20px;
   box-sizing: border-box;
 `;
 
@@ -56,6 +57,10 @@ function BottomButtons() {
       <MembershipLink
         handleClick={() => setModalView({ creatorsClub: true })}
         message="JOIN CREATORS CLUB TO GET UNLIMITED FREE SHIPPING, RETURNS, & EXCHANGES"
+      />
+      <MembershipLink
+        handleClick={() => setModalView({ returns: true })}
+        message="FREE 90 DAY EXTENDED HOLIDAY RETURNS & EXCHANGES"
       />
     </>
   );
