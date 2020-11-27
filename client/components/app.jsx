@@ -11,6 +11,7 @@ import ReturnsModal from './modals/returns/returnsModal';
 
 const Container = styled.div`
   max-width: 450px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 2rem 2.5rem;
