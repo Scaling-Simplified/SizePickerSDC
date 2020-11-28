@@ -6,9 +6,9 @@ const cartRouter = require('./routers/cart');
 
 function createServer() {
   const app = express();
+  app.use(compression());
   app.use(express.static(`${__dirname}/../public`));
   app.use(express.json());
-  app.use(compression());
   app.use('/api/products', sizesRouter);
   app.use('/api/cart', cartRouter);
   app.get('/:itemId', (req, res) => {
