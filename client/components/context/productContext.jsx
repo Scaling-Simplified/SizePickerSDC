@@ -10,7 +10,10 @@ export const ProductProvider = ({ children }) => {
   const [selectedSize, setSelectedSize] = useState({ id: null, size: null, stock: 100 });
   const [favorites, setFavorites] = useState([]);
   const [currentShoe, setCurrentShoe] = useState({});
-  const [outOfStock, setOutOfStock] = useState([]);
+  const [outOfStock, setOutOfStock] = useState({
+    all: [],
+    selected: { size: '', id: '' },
+  });
   const [ratingInfo, setRatingInfo] = useState({});
   const [modalView, setModalView] = useState({
     checkoutAdding: false,
@@ -21,6 +24,7 @@ export const ProductProvider = ({ children }) => {
     creatorsClub: false,
     returns: false,
   });
+  const [validInputs, setValidInputs] = useState({ email: false, checkbox: false });
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
@@ -33,7 +37,7 @@ export const ProductProvider = ({ children }) => {
       const [noStock, hasStock] = dataMassage.getOutOfStock(res.data.skus);
       res.data.skus = hasStock;
       setCurrentShoe(res.data);
-      setOutOfStock(noStock);
+      setOutOfStock({ all: noStock, selected: { ...outOfStock.selected } });
       setRatingInfo({ numOfReviews: res.data.numOfReviews, averageRating: res.data.averageRating });
     }
     getShoes();
@@ -55,6 +59,8 @@ export const ProductProvider = ({ children }) => {
       setCart,
       modalView,
       setModalView,
+      validInputs,
+      setValidInputs,
     }}
     >
       { children }
