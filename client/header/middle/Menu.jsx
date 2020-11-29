@@ -10,8 +10,7 @@ const Container = styled.div`
 `;
 
 const Navigation = styled.span`
-  margin-top: 3px;
-  margin-right: 20px;
+  margin: 3px 10px 0;
   width: max-content;
   box-sizing: border-box;
   font-size: 14px;
