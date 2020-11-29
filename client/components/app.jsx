@@ -10,8 +10,13 @@ import CreatorsClubModal from './modals/creatorsClub/creatorsClubModal';
 import ReturnsModal from './modals/returns/returnsModal';
 
 const Container = styled.div`
-  max-width: 450px;
+  width: 450px;
   height: 100vh;
+  position: sticky;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  background-color: white;
   display: flex;
   flex-direction: column;
   padding: 2rem 2.5rem;
