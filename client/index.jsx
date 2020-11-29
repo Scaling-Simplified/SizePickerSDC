@@ -14,9 +14,9 @@ ReactDOM.render(
 // Header is purely aesthetic
 // This and the 'header' folder in components can be safely deleted
 // with no loss of functionality
-// ReactDOM.render(
-//   <ProductProvider>
-//     <Header />
-//   </ProductProvider>,
-//   document.getElementById('Header')
-// );
+ReactDOM.render(
+  <ProductProvider>
+    <Header />
+  </ProductProvider>,
+  document.getElementById('Header')
+);
