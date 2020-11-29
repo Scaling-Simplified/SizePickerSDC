@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Menu from './Menu';
 import Search from './Search';
 import RightMenu from './RightMenu';
-import logo from './svg/BarracudasLogo.png';
+import logo from '../../../public/assets/BarracudasLogo.png';
 
 const Container = styled.div`
   display: flex;
@@ -30,7 +30,7 @@ const Logo = styled.div`
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 10px;
+  top: 0px;
   left: 40px;
   width: 80px;
   height: 80px;
