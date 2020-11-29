@@ -25,37 +25,38 @@ const Title = styled.span`
 `;
 
 const Price = styled.p`
-  font-family: adihaus;
+  font-family: AdihausDIN;
+  font-weight: 700;
   font-size: 16px;
-  margin-bottom: 2px;
 `;
 
-const Image = styled.img`
+const Image = styled.div`
   width: 100%;
-  content: url(https://myfecbucket.s3-us-west-1.amazonaws.com/fec+pictures/nmd_rwb/NMD_R1_Shoes_Blue_FV1734_01_standard.jpg);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(${(props) => props.photo});
 `;
 
 function ProductInfo() {
   const { currentShoe, selectedSize } = useContext(ProductContext);
+  const photo = currentShoe.photoUrl;
   return (
     <Wrapper>
       <Column>
-        <Image />
+        <Image photo={photo} />
       </Column>
       <Column>
         <Title>{currentShoe.name}</Title>
-        <Price>
-          $
-          {currentShoe.price}
-        </Price>
+        <Price>${currentShoe.price}</Price>
         <p>
           Color:
-          { }
+          {}
           {currentShoe.color}
         </p>
         <p>
           Size:
-          { }
+          {}
           {selectedSize.size}
         </p>
         <p>Quantity: 1</p>

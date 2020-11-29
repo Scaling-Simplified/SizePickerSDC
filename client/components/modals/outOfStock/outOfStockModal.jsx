@@ -11,7 +11,7 @@ import HoverLink from '../../hoverLink';
 import SignUpButton from './signUpButton';
 
 const Text = styled.p`
-  font-family: AdihausDIN,Helvetica,Arial,sans-serif;
+  font-family: AdihausDIN, Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 17px;
   letter-spacing: 2px;
@@ -40,8 +40,7 @@ function OutOfStockModal() {
     validInputs,
     setValidInputs,
   } = useContext(ProductContext);
-  const message = 'Select your size and we\'ll email you if it\'s back in stock';
-  console.log(Object.values(validInputs).every(Boolean));
+  const message = "Select your size and we'll email you if it's back in stock";
   return (
     <BaseModal
       title="Find my size"
@@ -57,7 +56,9 @@ function OutOfStockModal() {
         <Asterisk shrink />
       </FlexContainer>
       <FlexContainer>
-        {outOfStock.all.map((item) => <SizeItem key={item._id} size={item.size} id={item._id} />)}
+        {outOfStock.all.map((item) => (
+          <SizeItem key={item._id} size={item.size} id={item._id} />
+        ))}
       </FlexContainer>
       <EmailField />
       <FlexContainer top="20px">
@@ -68,15 +69,12 @@ function OutOfStockModal() {
       </FlexContainer>
       <FlexContainer top="20px">
         <Checkbox>
-          Sign me up to adidas Creators Club, featuring exclusive offers, latest product info, news about upcoming events and more. Please see our Terms & Conditions and
-          {' '}
-          <HoverLink message="Privacy Policy" />
-          {' '}
-          and Creators Club
-          {' '}
-          <HoverLink message="Terms & Conditions" />
-          {' '}
-          for more details. I agree to receive personalised email marketing messages from adidas America, Inc. and runtastic GmbH (\"runtastic\").
+          Sign me up to adidas Creators Club, featuring exclusive offers, latest product info, news
+          about upcoming events and more. Please see our Terms & Conditions and{' '}
+          <HoverLink message="Privacy Policy" /> and Creators Club{' '}
+          <HoverLink message="Terms & Conditions" /> for more details. I agree to receive
+          personalised email marketing messages from adidas America, Inc. and runtastic GmbH
+          ("runtastic").
           <Asterisk />
         </Checkbox>
       </FlexContainer>

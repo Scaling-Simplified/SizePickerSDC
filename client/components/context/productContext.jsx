@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-underscore-dangle */
 import React, { createContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
@@ -29,7 +30,7 @@ export const ProductProvider = ({ children }) => {
 
   useEffect(() => {
     async function getShoes() {
-      const url = (document.URL);
+      const url = document.URL;
       const parseURL = url.split('/');
       const itemId = Number(parseURL[parseURL.length - 1]) || 0;
 
@@ -44,26 +45,27 @@ export const ProductProvider = ({ children }) => {
   }, []);
 
   return (
-    <ProductContext.Provider value={{
-      selectedSize,
-      setSelectedSize,
-      favorites,
-      setFavorites,
-      currentShoe,
-      setCurrentShoe,
-      outOfStock,
-      setOutOfStock,
-      ratingInfo,
-      setRatingInfo,
-      cart,
-      setCart,
-      modalView,
-      setModalView,
-      validInputs,
-      setValidInputs,
-    }}
+    <ProductContext.Provider
+      value={{
+        selectedSize,
+        setSelectedSize,
+        favorites,
+        setFavorites,
+        currentShoe,
+        setCurrentShoe,
+        outOfStock,
+        setOutOfStock,
+        ratingInfo,
+        setRatingInfo,
+        cart,
+        setCart,
+        modalView,
+        setModalView,
+        validInputs,
+        setValidInputs,
+      }}
     >
-      { children }
+      {children}
     </ProductContext.Provider>
   );
 };

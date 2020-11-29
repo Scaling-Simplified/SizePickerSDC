@@ -24,15 +24,14 @@ const Text = styled.span`
 function Checkbox({ children, handleClick }) {
   const [checked, setChecked] = useState(false);
   return (
-    <Label onClick={() => {
-      setChecked(!checked);
-      handleClick(!checked);
-    }}
+    <Label
+      onClick={() => {
+        setChecked(!checked);
+        handleClick(!checked);
+      }}
     >
       <Checkmark checked={checked} />
-      <Text>
-        {children}
-      </Text>
+      <Text>{children}</Text>
     </Label>
   );
 }
