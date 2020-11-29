@@ -7,18 +7,20 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   align-self: flex-start;
-  height: 24px;
-  width: 24px;
+  min-height: 24px;
+  max-height: 24px;
+  min-width: 24px;
+  max-width: 24px;
   margin-right: 14px;
   justify-content: center;
-  border: 2px solid #767677;
+  border: ${(props) => (props.checked ? '1px solid black' : '1px solid #767677')};
   cursor: pointer;
   &:hover {
     border: 2px solid black;
-  };
-  transition: border-color .1s;
+  }
+  transition: border-color 0.1s;
   box-sizing: border-box;
-  background-color: ${(props) => (props.checked ? 'black' : 'white')}
+  background-color: ${(props) => (props.checked ? 'black' : 'white')};
 `;
 
 function Checkmark({ checked }) {

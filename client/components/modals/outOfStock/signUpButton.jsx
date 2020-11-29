@@ -24,9 +24,9 @@ const AddToBagButton = styled.div`
   box-sizing: border-box;
   transform: translate(-3px, -3px);
   &:active {
-    transform: ${(props) => (props.enabled && 'translate(0px, 0px)')};
+    transform: ${(props) => props.enabled && 'translate(0px, 0px)'};
   }
-  transition: transform .1s;
+  transition: transform 0.1s;
 `;
 
 const TransparencyWrapper = styled.div`
@@ -36,12 +36,12 @@ const TransparencyWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 21px;
-  cursor: pointer;
+  cursor: ${(props) => (props.enabled ? 'pointer' : 'not-allowed')};
   box-sizing: border-box;
   &:hover {
     opacity: ${(props) => props.enabled && '50%'};
   }
-  transition: opacity .1s;
+  transition: opacity 0.1s;
 `;
 
 const Grid = styled.div`
@@ -68,8 +68,7 @@ function SignUpButton({ enabled, handleClick, icon }) {
       <AddToBagButton onClick={handleClick} enabled={enabled}>
         <TransparencyWrapper enabled={enabled}>
           <Text>Sign up</Text>
-          {(icon.checkoutAdding && <Spinner />)
-          || <Arrow />}
+          {(icon.checkoutAdding && <Spinner />) || <Arrow />}
         </TransparencyWrapper>
       </AddToBagButton>
       <BorderBox enabled={enabled} />

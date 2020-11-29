@@ -16,10 +16,10 @@ const LineItem = styled.div`
   display: flex;
   justify-content: space-between;
   padding-bottom: 2px;
-  border-bottom: ${(props) => (props.border && '1px solid black')};
-  margin-bottom: ${(props) => (props.border && '6px')};
+  border-bottom: ${(props) => props.border && '1px solid black'};
+  margin-bottom: ${(props) => props.border && '6px'};
   font-family: AdihausDIN;
-  font-weight: ${(props) => (props.bold && '700')};
+  font-weight: ${(props) => props.bold && '700'};
   box-sizing: border-box;
 `;
 
@@ -41,17 +41,10 @@ function OrderSummary({ length, total }) {
   return (
     <Wrapper>
       <h5>Your Bag</h5>
-      <p>
-        {length}
-        {' '}
-        items
-      </p>
+      <p>{length} items</p>
       <LineItem>
         <span>Total Product Cost:</span>
-        <Price>
-          $
-          {total}
-        </Price>
+        <Price>${total}</Price>
       </LineItem>
       <LineItem border>
         <span>Total Delivery Cost:</span>
@@ -59,10 +52,7 @@ function OrderSummary({ length, total }) {
       </LineItem>
       <LineItem bold>
         <span>Total:</span>
-        <Price>
-          $
-          {total}
-        </Price>
+        <Price>${total}</Price>
       </LineItem>
       <p>Installment options</p>
       <Installments>

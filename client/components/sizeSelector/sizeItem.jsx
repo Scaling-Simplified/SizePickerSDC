@@ -15,11 +15,11 @@ const StyledSizeBlock = styled.span`
   cursor: pointer;
   margin-top: 0;
   background-color: ${(props) => props.selected && 'black'};
-  font-weight: ${(props) => props.selected && '800'};
+  font-weight: ${(props) => props.selected && '800'} !important;
   color: ${(props) => props.selected && 'white'};
   &:hover {
     background-color: black;
-    color: white
+    color: white;
   }
   box-sizing: border-box;
 `;
@@ -28,13 +28,8 @@ function SizeItem({ size, id, stock }) {
   const { selectedSize, setSelectedSize } = useContext(ProductContext);
   const selected = selectedSize.id === id;
   return (
-    <StyledSizeBlock
-      selected={selected}
-      onClick={
-        () => setSelectedSize({ id, size, stock })
-      }
-    >
-      <span>{ size }</span>
+    <StyledSizeBlock selected={selected} onClick={() => setSelectedSize({ id, size, stock })}>
+      <span>{size}</span>
     </StyledSizeBlock>
   );
 }
