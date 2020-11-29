@@ -19,7 +19,7 @@ function BottomButtons() {
     modalView,
     setModalView,
     // currentShoe,
-    // selectedSize,
+    selectedSize,
     // setCart,
   } = useContext(ProductContext);
   let label;
@@ -56,7 +56,7 @@ function BottomButtons() {
       </ButtonsContainer>
       <MembershipLink
         handleClick={() => setModalView({ creatorsClub: true })}
-        message="JOIN CREATORS CLUB TO GET UNLIMITED FREE SHIPPING, RETURNS, & EXCHANGES"
+        message="JOIN HIDDEN TEMPLE TO GET UNLIMITED FREE SHIPPING, RETURNS, & EXCHANGES"
       />
       <MembershipLink
         handleClick={() => setModalView({ returns: true })}

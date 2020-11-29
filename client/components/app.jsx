@@ -19,12 +19,24 @@ const Container = styled.div`
   background-color: white;
   display: flex;
   flex-direction: column;
-  padding: 2rem 2.5rem;
+  padding: 30px 40px;
   font-family: AdihausDIN, Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 14px;
   border-left: 1px solid rgb(235, 237, 238);
   box-sizing: border-box;
+  @media (min-width: 1280px) {
+    width: 430px;
+    padding: 30px 30px;
+  }
+  @media (min-width: 1440px) {
+    width: 450px;
+    padding: 30px 40px;
+  }
+  @media (min-width: 1680px) {
+    width: 490px;
+    padding: 30px 60px;
+  }
 `;
 
 const GlobalStyle = createGlobalStyle`
