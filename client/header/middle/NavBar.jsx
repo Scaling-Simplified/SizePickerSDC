@@ -20,7 +20,6 @@ const Right = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  height: 100%;
   position: absolute;
   right: 40px;
 `;
