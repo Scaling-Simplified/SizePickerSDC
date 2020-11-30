@@ -23,7 +23,7 @@ const ClickableBackground = styled.div`
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.7);
   opacity: ${(props) => (props.show ? '1' : '0')};
-  transition: opacity .2s;
+  transition: opacity 0.2s;
   z-index: -1;
 `;
 
@@ -38,13 +38,13 @@ const ModalContent = styled.div`
   border: 1px solid black;
   box-sizing: border-box;
   opacity: ${(props) => (props.show ? '1' : '0')};
-  transition: opacity .45s;
-  transition-delay: .1s;
+  transition: opacity 0.45s;
+  transition-delay: 0.1s;
   z-index: 0;
 `;
 
 const Title = styled.h5`
-  font-family: AdineuePRO,Helvetica,Arial,sans-serif;
+  font-family: AdineuePRO, Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   font-size: 30px;
@@ -59,9 +59,7 @@ const ModalContentWrapper = styled.div`
   overflow: auto;
 `;
 
-function BaseModal({
-  title, show, handleExit, children, wide,
-}) {
+function BaseModal({ title, show, handleExit, children, wide }) {
   // eslint-disable-next-line no-unused-expressions
   show && (document.body.style.overflow = 'hidden');
   function handleClick() {
@@ -96,11 +94,3 @@ BaseModal.propTypes = {
 };
 
 export default BaseModal;
-
-export {
-  Background,
-  ClickableBackground,
-  ModalContentWrapper,
-  ModalContent,
-  Title,
-};

@@ -18,7 +18,7 @@ function RightMenu() {
     <Wrapper>
       <Profile />
       <Heart />
-      <Bag />
+      <Bag count={2} />
     </Wrapper>
   );
 }

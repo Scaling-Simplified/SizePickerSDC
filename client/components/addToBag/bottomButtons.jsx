@@ -15,13 +15,9 @@ const ButtonsContainer = styled.div`
 `;
 
 function BottomButtons() {
-  const {
-    modalView,
-    setModalView,
-    // currentShoe,
-    selectedSize,
-    // setCart,
-  } = useContext(ProductContext);
+  const { modalView, setModalView, currentShoe, selectedSize, setCart, cart } = useContext(
+    ProductContext
+  );
   let label;
   if (modalView.checkoutAdding) {
     label = 'Adding...';
@@ -46,6 +42,7 @@ function BottomButtons() {
 
     setModalView({ checkoutAdding: true });
     setTimeout(() => setModalView({ checkoutAdding: false, checkoutShow: true }), 1200);
+    setCart([...cart, currentShoe.price]);
   }
 
   return (
