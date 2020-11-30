@@ -27,7 +27,7 @@ const AddToBagButton = styled.div`
   &:active {
     transform: translate(0px, 0px);
   }
-  transition: transform .1s;
+  transition: transform 0.1s;
 `;
 
 const TransparencyWrapper = styled.div`
@@ -42,7 +42,7 @@ const TransparencyWrapper = styled.div`
   &:hover {
     opacity: 50%;
   }
-  transition: opacity .1s;
+  transition: opacity 0.1s;
 `;
 
 const Grid = styled.div`
@@ -67,9 +67,9 @@ function AddToBag({ label, handleClick, icon }) {
       <AddToBagButton onClick={handleClick}>
         <TransparencyWrapper>
           <Text>{label}</Text>
-          {(icon.checkoutAdding && <Spinner />)
-          || (icon.checkoutShow && <Checkmark />)
-          || <Arrow />}
+          {(icon.checkoutAdding && <Spinner />) || (icon.checkoutShow && <Checkmark />) || (
+            <Arrow />
+          )}
         </TransparencyWrapper>
       </AddToBagButton>
       <BorderBox />

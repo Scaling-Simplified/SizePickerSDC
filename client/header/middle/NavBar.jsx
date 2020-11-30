@@ -36,6 +36,7 @@ const Logo = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
   background-image: url(${logo});
+  cursor: pointer;
 `;
 
 function NavBar() {

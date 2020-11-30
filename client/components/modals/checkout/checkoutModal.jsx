@@ -14,20 +14,23 @@ const ProductBagContent = styled.div`
 `;
 
 function CheckoutModal() {
-  const { modalView, setModalView } = useContext(ProductContext);
+  const { modalView, setModalView, cart } = useContext(ProductContext);
+  const total = cart.reduce((acc, curr) => acc + curr, 0);
   return (
     <BaseModal
       title="Successfully added to bag!"
       show={modalView.checkoutShow}
-      handleExit={() => setModalView({
-        checkoutShow: false,
-        checkoutAdding: false,
-        checkoutAdded: false,
-      })}
+      handleExit={() =>
+        setModalView({
+          checkoutShow: false,
+          checkoutAdding: false,
+          checkoutAdded: false,
+        })
+      }
     >
       <ProductBagContent>
         <ProductInfo />
-        <OrderSummary length={5} total={200} />
+        <OrderSummary length={cart.length} total={total} />
       </ProductBagContent>
     </BaseModal>
   );
