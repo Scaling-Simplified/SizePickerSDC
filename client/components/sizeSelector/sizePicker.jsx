@@ -14,7 +14,6 @@ const SelectSizeText = styled.span`
 const LowStockText = styled.span`
   color: #e63f3f;
   margin-top: 5px;
-  margin-bottom: 14px;
   line-height: 20px;
   box-sizing: border-box;
 `;

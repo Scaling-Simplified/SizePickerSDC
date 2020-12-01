@@ -5,13 +5,14 @@ import SizeItem from './sizeItem';
 import ProductContext from '../context/productContext';
 
 const Grid = styled.div`
-width: 100%;
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(80px,1fr));
-grid-gap: 0px;
-border-top: 1px solid #ebedee;
-border-left: 1px solid #ebedee;
-margin-bottom: 5px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  grid-gap: 0px;
+  border-top: 1px solid #ebedee;
+  border-left: 1px solid #ebedee;
+  margin-top: 14px;
+  margin-bottom: 5px;
 `;
 
 function SizeContainer() {
@@ -23,11 +24,7 @@ function SizeContainer() {
     ));
   }
 
-  return (
-    <Grid>
-      {items}
-    </Grid>
-  );
+  return <Grid>{items}</Grid>;
 }
 
 export default SizeContainer;
