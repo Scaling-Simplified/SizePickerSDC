@@ -15,9 +15,15 @@ const ButtonsContainer = styled.div`
 `;
 
 function BottomButtons() {
-  const { modalView, setModalView, currentShoe, selectedSize, setCart, cart } = useContext(
-    ProductContext
-  );
+  const {
+    modalView,
+    setModalView,
+    currentShoe,
+    selectedSize,
+    setAddError,
+    setCart,
+    cart,
+  } = useContext(ProductContext);
   let label;
   if (modalView.checkoutAdding) {
     label = 'Adding...';
@@ -40,9 +46,14 @@ function BottomButtons() {
     // const res = await axios.post('/api/cart', selected);
     // setCart(res.data);
 
-    setModalView({ checkoutAdding: true });
-    setTimeout(() => setModalView({ checkoutAdding: false, checkoutShow: true }), 1200);
-    setCart([...cart, currentShoe.price]);
+    if (selectedSize.id === null) {
+      setAddError(true);
+      setTimeout(() => setAddError(1), 500);
+    } else {
+      setModalView({ checkoutAdding: true });
+      setTimeout(() => setModalView({ checkoutAdding: false, checkoutShow: true }), 1200);
+      setCart([...cart, currentShoe.price]);
+    }
   }
 
   return (

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import SizeContainer from './sizeContainer';
 import ModalLink from '../modalLink';
 import ProductContext from '../context/productContext';
@@ -40,19 +40,26 @@ const jiggle = keyframes`
 `;
 
 const Jiggle = styled.div`
-  animation: ${(props) => props.enabled && `${jiggle} 0.4s ease 1`};
+  animation: ${(props) =>
+    props.enabled === true &&
+    css`
+      ${jiggle} 0.4s ease 1
+    `};
   margin-top: 20px;
 `;
 
 function SizeSelector() {
-  const { selectedSize, setModalView } = useContext(ProductContext);
+  const { selectedSize, setModalView, addError } = useContext(ProductContext);
   return (
     <>
-      <Jiggle enabled={false}>
+      <Jiggle enabled={addError}>
         <SelectSizeText>Select size</SelectSizeText>
         <SizeContainer />
-        {selectedSize.stock < 6 && (
+        {selectedSize.id !== null && selectedSize.stock < 6 && (
           <LowStockText>{`Only ${selectedSize.stock} left in stock`}</LowStockText>
+        )}
+        {selectedSize.id === null && addError !== null && addError !== false && (
+          <LowStockText>Please select a size</LowStockText>
         )}
       </Jiggle>
       <ModalLink
