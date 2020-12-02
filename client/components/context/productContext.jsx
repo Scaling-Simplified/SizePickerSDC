@@ -27,6 +27,7 @@ export const ProductProvider = ({ children }) => {
   });
   const [validInputs, setValidInputs] = useState({ email: false, checkbox: false });
   const [cart, setCart] = useState([]);
+  const [addError, setAddError] = useState(null);
 
   useEffect(() => {
     async function getShoes() {
@@ -63,6 +64,8 @@ export const ProductProvider = ({ children }) => {
         setModalView,
         validInputs,
         setValidInputs,
+        addError,
+        setAddError,
       }}
     >
       {children}

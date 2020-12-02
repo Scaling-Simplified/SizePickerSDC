@@ -20,7 +20,7 @@ const TextBox = styled.div`
 `;
 
 const Input = styled.input`
-  font-family: AdihausDIN,Helvetica,Arial,sans-serif;
+  font-family: AdihausDIN, Helvetica, Arial, sans-serif;
   font-size: 16px;
   border: 1px solid #767677;
   line-height: 22px;
@@ -31,10 +31,13 @@ const Input = styled.input`
   box-sizing: border-box;
   box-shadow: 0 2px 0 0 #e32b2b;
   z-index: 105;
-  box-shadow: ${(props) => ((props.valid || props.valid === null) ? 'none' : '0 1px 0 0 #e32b2b')};
-  border-bottom: ${(props) => ((props.valid || props.valid === null) ? '1px solid #767677' : '2px solid #e32b2b')};
+  box-shadow: ${(props) => (props.valid || props.valid === null ? 'none' : '0 1px 0 0 #e32b2b')};
+  border-bottom: ${(props) =>
+    props.valid || props.valid === null ? '1px solid #767677' : '2px solid #e32b2b'};
   overflow: visible;
-  &:focus {outline: none;};
+  &:focus {
+    outline: none;
+  }
 `;
 
 const Label = styled.label`
@@ -49,7 +52,7 @@ const Label = styled.label`
   top: ${(props) => (props.focus ? '3%' : '48%')};
   background-color: ${(props) => (props.focus ? 'white' : 'none')};
   transform: translateY(-50%);
-  transition: top .2s, font-size .2s, background-color .2s;
+  transition: top 0.2s, font-size 0.2s, background-color 0.2s;
   padding: 0 3px;
 `;
 
@@ -73,7 +76,7 @@ function EmailField() {
       setValidInputs({ ...validInputs, email: false });
     } else {
       setInputState({ ...inputState, focus: true });
-      if (!(/.+@.+\..+/.test(email))) {
+      if (!/.+@.+\..+/.test(email)) {
         setInputState({ ...inputState, valid: false });
         setValidInputs({ ...validInputs, email: false });
       } else {
@@ -98,13 +101,9 @@ function EmailField() {
             <Asterisk shrink={inputState.focus}>*</Asterisk>
           </>
         </Label>
-        {(inputState.valid === false) && <Cross />}
+        {inputState.valid === false && <Cross />}
       </TextBox>
-      {(inputState.valid === false) && (
-      <Error>
-        Please enter a valid e-mail address
-      </Error>
-      )}
+      {inputState.valid === false && <Error>Please enter a valid e-mail address</Error>}
     </Wrapper>
   );
 }

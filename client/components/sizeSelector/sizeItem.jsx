@@ -25,10 +25,16 @@ const StyledSizeBlock = styled.span`
 `;
 
 function SizeItem({ size, id, stock }) {
-  const { selectedSize, setSelectedSize } = useContext(ProductContext);
+  const { selectedSize, setSelectedSize, setAddError } = useContext(ProductContext);
   const selected = selectedSize.id === id;
   return (
-    <StyledSizeBlock selected={selected} onClick={() => setSelectedSize({ id, size, stock })}>
+    <StyledSizeBlock
+      selected={selected}
+      onClick={() => {
+        setSelectedSize({ id, size, stock });
+        setAddError(false);
+      }}
+    >
       <span>{size}</span>
     </StyledSizeBlock>
   );
