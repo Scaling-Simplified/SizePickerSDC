@@ -28,3 +28,6 @@ bundle.js
 # env config
 .env
 
+# Data
+products.csv
+
