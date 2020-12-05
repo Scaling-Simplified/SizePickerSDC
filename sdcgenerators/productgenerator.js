@@ -34,25 +34,16 @@ const startWriting = (writeStream, encoding, done) => {
 
   function writing() {
     const canWrite = true;
-
     do {
-      // eslint-disable-next-line no-plusplus
-      i--;
-
+      i -= 1;
       const product = createProduct();
-      // check if i === 0 so we would write and call 'done'
       if (i === 0) {
-        // we are done so fire the callback
         writeStream.write(product, encoding, done);
       } else {
-        // we are not done so don't fire the callback
         writeStream.write(product, encoding);
       }
-      // else call write and continue looping
     } while (i > 0 && canWrite);
     if (i > 0 && !canWrite) {
-      // our buffer for stream filled and need to wait to drain
-      // Write some more once it drains
       writeStream.once('drain', writing);
     }
   }

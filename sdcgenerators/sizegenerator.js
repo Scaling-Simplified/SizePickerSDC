@@ -4,10 +4,10 @@ const { argv } = require('yargs');
 const fakeData = require('./fakedata');
 
 const lines = argv.lines || 100;
-const filename = argv.output || 'products.csv';
+const filename = argv.output || 'sizes.csv';
 const stream = fs.createWriteStream(filename);
 
-const getRandomElement = (array) => array[Math.floor(array.length * Math.random())];
+// const getRandomElement = (array) => array[Math.floor(array.length * Math.random())];
 
 const getRandomNum = (min, max, rounded = false) => {
   const randInt = faker.random.number({
@@ -17,16 +17,18 @@ const getRandomNum = (min, max, rounded = false) => {
   return rounded ? Math.ceil(randInt / 10) * 10 : randInt;
 };
 
-const createProduct = () => {
-  const productName = getRandomElement(fakeData.shoeName);
-  const category = getRandomElement(fakeData.categories);
-  const color = faker.commerce.color();
-  const price = getRandomNum(100, 200, true);
-  const photoUrl = getRandomElement(fakeData.urls);
-  const totalReviews = getRandomNum(10, 300, true);
-  const averageRating = getRandomNum(0, 5, true);
+const createSizes = (num) => {
+  let iteration = 0;
+  let string = '';
 
-  return `${productName}, ${category}, ${color}, ${price}, ${photoUrl}, ${totalReviews}, ${averageRating}\n`;
+  while (iteration < 19) {
+    const productId = num;
+    const size = fakeData.shoeSizes[iteration];
+    const quantity = getRandomNum(10, 50);
+    string += `${productId}, ${size}, ${quantity}\n`;
+    iteration += 1;
+  }
+  return string;
 };
 
 const startWriting = (writeStream, encoding, done) => {
@@ -34,42 +36,25 @@ const startWriting = (writeStream, encoding, done) => {
 
   function writing() {
     const canWrite = true;
-
+    let currentSize = 1;
     do {
-      // eslint-disable-next-line no-plusplus
-      i--;
-
-      const product = createProduct();
-      // check if i === 0 so we would write and call 'done'
+      i -= 1;
+      const product = createSizes(currentSize);
+      currentSize += 1;
       if (i === 0) {
-        // we are done so fire the callback
         writeStream.write(product, encoding, done);
       } else {
-        // we are not done so don't fire the callback
         writeStream.write(product, encoding);
       }
-      // else call write and continue looping
     } while (i > 0 && canWrite);
     if (i > 0 && !canWrite) {
-      // our buffer for stream filled and need to wait to drain
-      // Write some more once it drains
       writeStream.once('drain', writing);
     }
   }
   writing();
 };
 
-stream.write(
-  `productName, category, color, price, photoUrl, totalReviews, averageRating\n`,
-  'utf-8'
-);
+stream.write(`productId, size, quantity\n`, 'utf-8');
 startWriting(stream, 'utf-8', () => {
   stream.end();
 });
-
-// CREATE TABLE IF NOT EXISTS product_sizes (
-//   id         SERIAL PRIMARY KEY,
-//   productId  INTEGER REFERENCES products(id),
-//   size       VARCHAR(30) NOT NULL,
-//   quantity   INTEGER DEFAULT 0
-// );
