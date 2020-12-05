@@ -13,19 +13,12 @@
     "start": "node server/index.js",
     "seed-db": "node seed.js",
     "test": "jest --config ./spec/jest.allTests.config.js",
-<<<<<<< HEAD
     "docker": "node ./seed.js && node ./server/index.js",
     "sdcdata": "node sdcgenerators/pggenerator.js --lines 10000000 --output products.csv"
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
     "arangojs": "^7.2.0",
-=======
-    "docker": "node ./seed.js && node ./server/index.js"
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.12.5",
->>>>>>> a290989b4a5aee6be844b50a3e3e5f4734348e67
     "axios": "^0.21.0",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
@@ -34,20 +27,13 @@
     "express": "^4.17.1",
     "lodash": "^4.17.20",
     "mongoose": "^5.10.13",
-<<<<<<< HEAD
     "pg": "^8.5.1",
-=======
->>>>>>> a290989b4a5aee6be844b50a3e3e5f4734348e67
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-router-dom": "^5.2.0",
-<<<<<<< HEAD
     "styled-components": "^5.2.1",
     "yargs": "^16.1.1"
-=======
-    "styled-components": "^5.2.1"
->>>>>>> a290989b4a5aee6be844b50a3e3e5f4734348e67
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",

@@ -35,11 +35,7 @@ export const ProductProvider = ({ children }) => {
       const parseURL = url.split('/');
       const itemId = Number(parseURL[parseURL.length - 1]) || 0;
 
-<<<<<<< HEAD
       const res = await axios.get(`/api/products/${itemId}`);
-=======
-      const res = await axios.get(`/api/products/${itemId}/sizepicker`);
->>>>>>> a290989b4a5aee6be844b50a3e3e5f4734348e67
       const [noStock, hasStock] = dataMassage.getOutOfStock(res.data.skus);
       res.data.skus = hasStock;
       setCurrentShoe(res.data);
