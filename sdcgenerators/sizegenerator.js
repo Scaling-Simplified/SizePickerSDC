@@ -1,7 +1,8 @@
 const fs = require('fs');
-const fakeData = require('./fakedata');
 const faker = require('faker');
-const argv = require('yargs').argv;
+const { argv } = require('yargs');
+const fakeData = require('./fakedata');
+
 const lines = argv.lines || 100;
 const filename = argv.output || 'products.csv';
 const stream = fs.createWriteStream(filename);
@@ -35,13 +36,13 @@ const startWriting = (writeStream, encoding, done) => {
     const canWrite = true;
 
     do {
+      // eslint-disable-next-line no-plusplus
       i--;
 
       const product = createProduct();
       // check if i === 0 so we would write and call 'done'
       if (i === 0) {
         // we are done so fire the callback
-        console.log('Done writing');
         writeStream.write(product, encoding, done);
       } else {
         // we are not done so don't fire the callback

@@ -41,7 +41,6 @@ router.route('/addproduct').post((req, res) => {
       if (err) {
         res.sendStatus(404);
       } else {
-        console.log(results);
         res.status(201).send(`Product added with ID: ${results.rows[0].id}`);
       }
     }
