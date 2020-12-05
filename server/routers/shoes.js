@@ -12,7 +12,11 @@ router.route('/').get(async (req, res) => {
   res.send(product);
 });
 
+<<<<<<< HEAD
 router.route('/:itemId').get(async (req, res) => {
+=======
+router.route('/:itemId/sizepicker').get(async (req, res) => {
+>>>>>>> a290989b4a5aee6be844b50a3e3e5f4734348e67
   const { itemId } = req.params;
   const product = await productDb.findOne(itemId).catch((ex) => {
     debug(ex);
@@ -21,6 +25,7 @@ router.route('/:itemId').get(async (req, res) => {
   res.send(product);
 });
 
+<<<<<<< HEAD
 router.route('/:itemId').delete(async (req, res) => {
   const { itemId } = req.params;
   await productDb.deleteOne(itemId).catch((ex) => {
@@ -49,4 +54,6 @@ router.route('/').put(async (req, res) => {
   res.sendStatus(200);
 });
 
+=======
+>>>>>>> a290989b4a5aee6be844b50a3e3e5f4734348e67
 module.exports = router;
