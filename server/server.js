@@ -11,7 +11,8 @@ function createServer() {
   app.use(compression());
   app.use(express.static(`${__dirname}/../public`));
   app.use(express.json());
-  app.use('/api/products', pgRouter);
+  app.use('/api/products', sizesRouter);
+  app.use('/db', pgRouter);
   app.use('/api/cart', cartRouter);
   app.get('/:itemId', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'));

@@ -30,7 +30,7 @@ const createCart = (num) => {
     const productId = getRandomNum(1, 100000000);
     const quantity = getRandomNum(1, 20);
     const dateAdded = getRandomDate();
-    string += `${customerId}, ${productId}, ${quantity}, ${dateAdded}\n`;
+    string += `${customerId},${productId},${quantity},${dateAdded}\n`;
     iteration += 1;
   }
   return string;
@@ -59,7 +59,7 @@ const startWriting = (writeStream, encoding, done) => {
   writing();
 };
 
-stream.write(`customerId, productId, quantity, dateAdded\n`, 'utf-8');
+stream.write(`customerId,productId,quantity,dateAdded\n`, 'utf-8');
 startWriting(stream, 'utf-8', () => {
   stream.end();
 });

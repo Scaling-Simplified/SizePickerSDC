@@ -21,9 +21,9 @@ router.route('/getallproducts').get((req, res) => {
   });
 });
 
-router.route('/getproductswhere').get((req, res) => {
-  const { request } = req.body;
-  db.query(`SELECT * FROM products WHERE ${request}`, (err, results) => {
+router.route('/getdatafrom').get((req, res) => {
+  const { table, request } = req.body;
+  db.query(`SELECT * FROM ${table} WHERE ${request}`, (err, results) => {
     if (err) {
       res.sendStatus(404);
     } else {

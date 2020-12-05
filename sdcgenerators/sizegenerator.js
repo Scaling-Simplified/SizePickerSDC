@@ -25,7 +25,7 @@ const createSizes = (num) => {
     const productId = num;
     const size = fakeData.shoeSizes[iteration];
     const quantity = getRandomNum(10, 50);
-    string += `${productId}, ${size}, ${quantity}\n`;
+    string += `${productId},${size},${quantity}\n`;
     iteration += 1;
   }
   return string;
@@ -54,7 +54,7 @@ const startWriting = (writeStream, encoding, done) => {
   writing();
 };
 
-stream.write(`productId, size, quantity\n`, 'utf-8');
+stream.write(`productId,size,quantity\n`, 'utf-8');
 startWriting(stream, 'utf-8', () => {
   stream.end();
 });

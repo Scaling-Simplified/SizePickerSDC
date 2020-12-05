@@ -10,7 +10,7 @@ const createProduct = () => {
   const customerName = faker.name.firstName();
   const customerEmail = faker.internet.email();
 
-  return `${customerName}, ${customerEmail}\n`;
+  return `${customerName},${customerEmail}\n`;
 };
 
 const startWriting = (writeStream, encoding, done) => {
@@ -34,7 +34,7 @@ const startWriting = (writeStream, encoding, done) => {
   writing();
 };
 
-stream.write(`customerName, customerEmail\n`, 'utf-8');
+stream.write(`customerName,customerEmail\n`, 'utf-8');
 startWriting(stream, 'utf-8', () => {
   stream.end();
 });
