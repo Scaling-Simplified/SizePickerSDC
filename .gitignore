@@ -28,5 +28,4 @@ bundle.js
 # env config
 .env
 
-# Data
 *.csv
