@@ -5,8 +5,8 @@ const createServer = require('./server');
 
 const port = 3002;
 
-mongoose.connect('mongodb://database/sizepicker',
-  { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose
+  .connect('mongodb://localhost/sizepicker', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     debug('Connected to sizepicker');
     const app = createServer();
