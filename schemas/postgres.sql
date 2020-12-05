@@ -27,3 +27,16 @@ CREATE TABLE IF NOT EXISTS product_sizes (
   size       VARCHAR(30) NOT NULL,
   quantity   INTEGER DEFAULT 0
 );
+
+CREATE TABLE IF NOT EXISTS customers (
+  id             SERIAL PRIMARY KEY,
+  customerName   VARCHAR(100) NOT NULL,
+  customerEmail  VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS customer_cart (
+  customerId  INTEGER REFERENCES customers(id),
+  productId   INTEGER REFERENCES product_sizes(id),
+  quantity    INTEGER DEFAULT 0,
+  dateAdded   VARCHAR(100)
+);
