@@ -4,7 +4,7 @@ const Products = require('./db/models/product.js');
 const testData = require('./dataGenerator.js');
 
 mongoose
-  .connect('mongodb://database/sizepicker', { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect('mongodb://localhost/sizepicker', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => debug('Connected to sizepicker DB'));
 
 const seedDb = async (quantity) => {

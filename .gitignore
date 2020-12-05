@@ -28,3 +28,4 @@ bundle.js
 # env config
 .env
 
+*.csv
