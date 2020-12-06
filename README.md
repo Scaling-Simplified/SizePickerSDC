@@ -32,19 +32,17 @@ Path in which public directory gets served:
 localhost:3002/:id
 ```
 
-#### GET - Getting Data From Mongoose Database
-
-Path required to complete GET request:
+### GET - Getting Data From Mongoose Database
 
 ```
+Path required to complete GET request:
+
 /api/products/:id
 
 :id = Id Of Product Id You Are Looking For
-```
 
 Response From GET Request:
 
-```
 {
   "_id": "string",
   "name": "string",
@@ -60,34 +58,30 @@ Response From GET Request:
 }
 ```
 
-#### DELETE - Deleting An Entry In Mongoose Database
-
-Path required to complete DELETE request:
+### DELETE - Deleting An Entry In Mongoose Database
 
 ```
+Path required to complete DELETE request:
+
 /api/products/:id
 
 :id = Id Of Product Id You Are Looking To Delete
-```
 
 Response From DELETE Request:
 
-```
 On Success: 200
 On Failure: 404
 ```
 
-#### POST - Adding New Data Into Mongoose Database
+### POST - Adding New Data Into Mongoose Database
 
+```
 Path required to complete POST request:
 
-```
 /api/products
-```
 
 Request Body Format Required:
 
-```
 {
   "name": "string",
   "id": "integer",
@@ -99,26 +93,22 @@ Request Body Format Required:
   "averageRating": "integer",
   "skus": "array",
 }
-```
 
 Response From POST Request:
 
-```
 On Success: 200
 On Failure: 404
 ```
 
-#### PUT - Updating Entry In Mongoose Database
+### PUT - Updating Entry In Mongoose Database
 
+```
 Path required to complete PUT request:
 
-```
 /api/products
-```
 
 Request Body Format Required:
 
-```
 {
   "id": :id
   "data": { ":key": ":newData" }
