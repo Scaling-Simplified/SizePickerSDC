@@ -9,6 +9,8 @@ CREATE DATABASE sdcproducts;
 
 DROP TABLE IF EXISTS product_sizes;
 DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS customers;
+DROP TABLE IF EXISTS customer_cart;
 
 CREATE TABLE IF NOT EXISTS products (
   id              SERIAL PRIMARY KEY,
