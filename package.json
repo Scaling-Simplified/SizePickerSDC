@@ -14,11 +14,15 @@
     "seed-db": "node seed.js",
     "test": "jest --config ./spec/jest.allTests.config.js",
     "docker": "node ./seed.js && node ./server/index.js",
+    "arangosdc": "arangosh --server.username root --server.database sdcproducts --server.authentication false",
     "seed-products": "node sdcgenerators/productgenerator.js --lines 10000000 --output products.csv",
     "seed-sizes": "node sdcgenerators/sizegenerator.js --lines 10000000 --output sizes.csv",
     "seed-customers": "node sdcgenerators/customersgenerator.js --lines 5000000 --output customers.csv",
     "seed-cart": "node sdcgenerators/cartgenerator.js --lines 5000000 --output cart.csv",
-    "seed-arangoproducts": "node sdcgenerators/arangoproducts.js --lines 1000000 --output arangoproducts.json"
+    "seed-arangoproducts": "node sdcgenerators/arangoproducts.js --lines 10000000 --output arangoproducts.json",
+    "seed-arangocustomers": "node sdcgenerators/arangocustomers.js --lines 10000000 --output arangocustomers.json",
+    "arango-writeproducts": "arangoimport --server.database sdcproducts --server.username root --file 'arangoproducts.json' --type json --collection 'products'",
+    "arango-writecustomers": "arangoimport --server.database sdcproducts --server.username root --file 'arangocustomers.json' --type json --collection 'customers'"
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
