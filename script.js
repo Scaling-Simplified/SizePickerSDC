@@ -1,3 +1,5 @@
+/* eslint-disable no-shadow */
+/* eslint-disable prefer-const */
 /* eslint-disable import/no-unresolved */
 import { sleep, check } from 'k6';
 import http from 'k6/http';
