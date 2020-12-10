@@ -1,30 +1,11 @@
 # Project Name
 
-> Project description
+> Size Picker System Design Capstone
 
 ## Related Projects
 
-  - https://github.com/true-barracudas/trackpinch-service
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-
-## Table of Contents
-
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-
-## Usage
-
-> Some usage instructions
-
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
+- https://github.com/true-barracudas/sizepicker-service
+- https://github.com/true-barracudas/sizepicker-proxy
 
 ## Development
 
@@ -32,8 +13,110 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 From within the root directory:
 
-```sh
-npm install -g webpack
+```
 npm install
 ```
 
+### Mongoose CRUD Operations
+
+Starting the server:
+
+```
+npm run dev-start
+```
+
+Path in which public directory gets served:
+:id = Integer Between 1-100
+
+```
+localhost:3002/:id
+```
+
+### GET - Getting Data From Mongoose Database
+
+```
+Path required to complete GET request:
+
+/api/products/:id
+
+:id = Id Of Product Id You Are Looking For
+
+Response From GET Request:
+
+{
+  "_id": "string",
+  "name": "string",
+  "id": "integer",
+  "category": "string",
+  "color": "string",
+  "price": "integer",
+  "photoUrl": "string",
+  "numOfReviews": "integer",
+  "averageRating": "integer",
+  "skus": "array",
+  "__v": "integer"
+}
+```
+
+### DELETE - Deleting An Entry In Mongoose Database
+
+```
+Path required to complete DELETE request:
+
+/api/products/:id
+
+:id = Id Of Product Id You Are Looking To Delete
+
+Response From DELETE Request:
+
+On Success: 200
+On Failure: 404
+```
+
+### POST - Adding New Data Into Mongoose Database
+
+```
+Path required to complete POST request:
+
+/api/products
+
+Request Body Format Required:
+
+{
+  "name": "string",
+  "id": "integer",
+  "category": "string",
+  "color": "string",
+  "price": "integer",
+  "photoUrl": "string",
+  "numOfReviews": "integer",
+  "averageRating": "integer",
+  "skus": "array",
+}
+
+Response From POST Request:
+
+On Success: 200
+On Failure: 404
+```
+
+### PUT - Updating Entry In Mongoose Database
+
+```
+Path required to complete PUT request:
+
+/api/products
+
+Request Body Format Required:
+
+{
+  "id": :id
+  "data": { ":key": ":newData" }
+}
+
+(
+  :id = Product Id You Wish To Update,
+  :key = Schema Key You Are Looking To Update,
+  :newData = Data You Would Like To Reassign To
+)
+```

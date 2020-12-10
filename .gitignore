@@ -28,4 +28,8 @@ bundle.js
 # env config
 .env
 
+# Data generation files
 *.csv
+arangoproducts.json
+arangocustomers.json
+newrelic.js

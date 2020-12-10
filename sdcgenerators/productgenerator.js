@@ -26,7 +26,7 @@ const createProduct = () => {
   const totalReviews = getRandomNum(10, 300, true);
   const averageRating = getRandomNum(0, 5, true);
 
-  return `${productName}, ${category}, ${color}, ${price}, ${photoUrl}, ${totalReviews}, ${averageRating}\n`;
+  return `${productName},${category},${color},${price},${photoUrl},${totalReviews},${averageRating}\n`;
 };
 
 const startWriting = (writeStream, encoding, done) => {
@@ -50,10 +50,7 @@ const startWriting = (writeStream, encoding, done) => {
   writing();
 };
 
-stream.write(
-  `productName, category, color, price, photoUrl, totalReviews, averageRating\n`,
-  'utf-8'
-);
+stream.write(`productName,category,color,price,photoUrl,totalReviews,averageRating\n`, 'utf-8');
 startWriting(stream, 'utf-8', () => {
   stream.end();
 });

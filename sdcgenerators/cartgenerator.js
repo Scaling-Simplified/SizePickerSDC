@@ -1,13 +1,10 @@
 const fs = require('fs');
 const faker = require('faker');
 const { argv } = require('yargs');
-const fakeData = require('./fakedata');
 
 const lines = argv.lines || 100;
-const filename = argv.output || 'sizes.csv';
+const filename = argv.output || 'cart.csv';
 const stream = fs.createWriteStream(filename);
-
-// const getRandomElement = (array) => array[Math.floor(array.length * Math.random())];
 
 const getRandomNum = (min, max, rounded = false) => {
   const randInt = faker.random.number({
@@ -17,15 +14,23 @@ const getRandomNum = (min, max, rounded = false) => {
   return rounded ? Math.ceil(randInt / 10) * 10 : randInt;
 };
 
-const createSizes = (num) => {
+const getRandomDate = () => {
+  const month = getRandomNum(1, 12);
+  const day = getRandomNum(1, 30);
+
+  return `${month}/${day}/2020`;
+};
+
+const createCart = (num) => {
   let iteration = 0;
   let string = '';
 
-  while (iteration < 19) {
-    const productId = num;
-    const size = fakeData.shoeSizes[iteration];
-    const quantity = getRandomNum(10, 50);
-    string += `${productId},${size},${quantity}\n`;
+  while (iteration < 3) {
+    const customerId = num;
+    const productId = getRandomNum(1, 100000000);
+    const quantity = getRandomNum(1, 20);
+    const dateAdded = getRandomDate();
+    string += `${customerId},${productId},${quantity},${dateAdded}\n`;
     iteration += 1;
   }
   return string;
@@ -36,11 +41,11 @@ const startWriting = (writeStream, encoding, done) => {
 
   function writing() {
     const canWrite = true;
-    let currentSize = 1;
+    let currentCart = 1;
     do {
       i -= 1;
-      const product = createSizes(currentSize);
-      currentSize += 1;
+      const product = createCart(currentCart);
+      currentCart += 1;
       if (i === 0) {
         writeStream.write(product, encoding, done);
       } else {
@@ -54,7 +59,7 @@ const startWriting = (writeStream, encoding, done) => {
   writing();
 };
 
-stream.write(`productId,size,quantity\n`, 'utf-8');
+stream.write(`customerId,productId,quantity,dateAdded\n`, 'utf-8');
 startWriting(stream, 'utf-8', () => {
   stream.end();
 });
