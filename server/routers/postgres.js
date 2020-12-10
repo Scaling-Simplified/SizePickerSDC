@@ -11,19 +11,9 @@ const express = require('express');
 
 const router = express.Router();
 
-router.route('/getallproducts').get((req, res) => {
-  db.query('SELECT * FROM products', (err, results) => {
-    if (err) {
-      res.sendStatus(404);
-    } else {
-      res.status(200).json(results.rows);
-    }
-  });
-});
-
-router.route('/getdatafrom').get((req, res) => {
-  const { table, request } = req.body;
-  db.query(`SELECT * FROM ${table} WHERE ${request}`, (err, results) => {
+router.route('/getproduct').get((req, res) => {
+  const { id } = req.body;
+  db.query(`SELECT * FROM products WHERE id = ${id}`, (err, results) => {
     if (err) {
       res.sendStatus(404);
     } else {

@@ -32,3 +32,4 @@ bundle.js
 *.csv
 arangoproducts.json
 arangocustomers.json
+newrelic.js
