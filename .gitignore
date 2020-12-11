@@ -33,3 +33,4 @@ bundle.js
 arangoproducts.json
 arangocustomers.json
 newrelic.js
+postgres.js
