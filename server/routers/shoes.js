@@ -9,8 +9,6 @@ const products = arangoDb.collection('products');
 const customers = arangoDb.collection('customers');
 
 const express = require('express');
-// const debug = require('debug')('app:server:sizes');
-// const productDb = require('../../db/models/product.js');
 
 const router = express.Router();
 

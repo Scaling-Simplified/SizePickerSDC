@@ -4,16 +4,13 @@ const path = require('path');
 const compression = require('compression');
 const sizesRouter = require('./routers/shoes');
 
-function createServer() {
-  const app = express();
-  app.use(compression());
-  app.use(express.static(`${__dirname}/../public`));
-  app.use(express.json());
-  app.use('/api/products', sizesRouter);
-  app.get('/:itemId', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/index.html'));
-  });
-  return app;
-}
+const app = express();
+app.use(compression());
+app.use(express.static(`${__dirname}/../public`));
+app.use(express.json());
+app.use('/api/products', sizesRouter);
+app.get('/:itemId', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
+});
 
-module.exports = createServer;
+app.listen(3002);

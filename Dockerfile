@@ -1,5 +1,5 @@
 # What image do you want to start building on?
-FROM node:12-alpine
+FROM node:12
 
 # Tell your container where your app's source code will live
 WORKDIR /src/app
@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3002
 
 # How do you start your app?
-CMD npm run dev-react && npm run docker
+CMD npm run dev-react && npm run dev-start
