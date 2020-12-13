@@ -4,6 +4,7 @@ const { Database, aql } = require('arangojs');
 
 const arangoDb = new Database();
 arangoDb.useDatabase('sdcproducts');
+arangoDb.useBasicAuth('root', '');
 const products = arangoDb.collection('products');
 const customers = arangoDb.collection('customers');
 
@@ -65,51 +66,6 @@ router.route('/arango/addproduct').post(async (req, res) => {
     res.sendStatus(404);
   }
 });
-
-// router.route('/').get(async (req, res) => {
-//   const product = await productDb.findOne(0).catch((ex) => {
-//     debug(ex);
-//     res.status(404).send(ex.message);
-//   });
-//   res.send(product);
-// });
-
-// router.route('/:itemId/sizepicker').get(async (req, res) => {
-//   const { itemId } = req.params;
-//   const product = await productDb.findOne(itemId).catch((ex) => {
-//     debug(ex);
-//     res.status(404).send(ex.message);
-//   });
-//   res.send(product);
-// });
-
-// router.route('/:itemId').delete(async (req, res) => {
-//   const { itemId } = req.params;
-//   await productDb.deleteOne(itemId).catch((ex) => {
-//     debug(ex);
-//     res.status(404).send(ex.message);
-//   });
-//   res.sendStatus(200);
-// });
-
-// router.route('/').post(async (req, res) => {
-//   const product = new productDb.ProductModel(req.body);
-//   await productDb.addProduct(product).catch((ex) => {
-//     debug(ex);
-//     res.status(404).send(ex.message);
-//   });
-//   res.sendStatus(200);
-// });
-
-// router.route('/').put(async (req, res) => {
-//   const { id } = req.body;
-//   const data = req.body.update;
-//   await productDb.updateProduct({ id }, data).catch((ex) => {
-//     debug(ex);
-//     res.status(404).send(ex.message);
-//   });
-//   res.sendStatus(200);
-// });
 
 router.route('/:itemId/sizepicker').get(async (req, res) => {
   const { itemId } = req.params;
