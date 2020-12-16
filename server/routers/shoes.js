@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-expressions */
 const { Database, aql } = require('arangojs');
 
-const arangoDb = new Database();
+const arangoDb = new Database({ url: 'http://54.193.2.165:8529' });
 arangoDb.useDatabase('sdcproducts');
 arangoDb.useBasicAuth('root', '');
 const products = arangoDb.collection('products');
