@@ -10,9 +10,13 @@ const getRandomNum = () => {
 
 export const options = {
   stages: [
-    { duration: '10s', target: 1500 },
-    { duration: '45s', target: 1500 },
-    { duration: '10s', target: 0 },
+    { duration: '1m', target: 100 },
+    { duration: '1m', target: 300 },
+    { duration: '1m', target: 700 },
+    { duration: '30s', target: 1300 },
+    { duration: '1m', target: 700 },
+    { duration: '1m', target: 300 },
+    { duration: '1m', target: 0 },
   ],
   ext: {
     loadimpact: {
